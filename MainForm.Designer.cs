@@ -28,33 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnOrganizations = new System.Windows.Forms.Button();
+            this.pnlMain = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // btnOrganizations
+            // pnlMain
             // 
-            this.btnOrganizations.Location = new System.Drawing.Point(336, 201);
-            this.btnOrganizations.Name = "btnOrganizations";
-            this.btnOrganizations.Size = new System.Drawing.Size(98, 31);
-            this.btnOrganizations.TabIndex = 0;
-            this.btnOrganizations.Text = "Организация";
-            this.btnOrganizations.UseVisualStyleBackColor = true;
-            this.btnOrganizations.Click += new System.EventHandler(this.btnOrganizations_Click);
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.Location = new System.Drawing.Point(0, 0);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(800, 450);
+            this.pnlMain.TabIndex = 10;
+            this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnOrganizations);
+            this.Controls.Add(this.pnlMain);
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnOrganizations;
+        private System.Windows.Forms.Panel pnlMain;
     }
 }

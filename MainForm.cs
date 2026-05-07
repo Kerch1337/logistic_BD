@@ -15,6 +15,8 @@ namespace logistic_BD
         public MainForm()
         {
             InitializeComponent();
+
+            ShowView(new MenuView());
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -22,10 +24,38 @@ namespace logistic_BD
             Application.Exit();
         }
 
-        private void btnOrganizations_Click(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            OrganizationForm form = new OrganizationForm();
-            form.ShowDialog();
+
+        }
+
+        private void btnDriver_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void ShowView(UserControl view)
+        {
+            pnlMain.Controls.Clear();
+            view.Dock = DockStyle.Fill;
+            pnlMain.Controls.Add(view);
+        }
+
+
+
+        private void pnlMain_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
