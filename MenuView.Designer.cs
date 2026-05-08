@@ -97,6 +97,7 @@
             this.btnClient.TabIndex = 14;
             this.btnClient.Text = "Клиенты";
             this.btnClient.UseVisualStyleBackColor = true;
+            this.btnClient.Click += new System.EventHandler(this.btnClient_Click);
             // 
             // btnContract
             // 
@@ -115,6 +116,7 @@
             this.btnVehicle.TabIndex = 15;
             this.btnVehicle.Text = "Транспортные средства";
             this.btnVehicle.UseVisualStyleBackColor = true;
+            this.btnVehicle.Click += new System.EventHandler(this.btnVehicle_Click);
             // 
             // btnWaybill
             // 
@@ -133,6 +135,7 @@
             this.btnTrailer.TabIndex = 16;
             this.btnTrailer.Text = "Прицепы";
             this.btnTrailer.UseVisualStyleBackColor = true;
+            this.btnTrailer.Click += new System.EventHandler(this.btnTrailer_Click);
             // 
             // btnWorker
             // 
@@ -142,6 +145,7 @@
             this.btnWorker.TabIndex = 19;
             this.btnWorker.Text = "Работник";
             this.btnWorker.UseVisualStyleBackColor = true;
+            this.btnWorker.Click += new System.EventHandler(this.btnWorker_Click);
             // 
             // btnDriver
             // 
@@ -151,6 +155,7 @@
             this.btnDriver.TabIndex = 17;
             this.btnDriver.Text = "Водители";
             this.btnDriver.UseVisualStyleBackColor = true;
+            this.btnDriver.Click += new System.EventHandler(this.btnDriver_Click);
             // 
             // btnHealthWorker
             // 
@@ -160,6 +165,7 @@
             this.btnHealthWorker.TabIndex = 18;
             this.btnHealthWorker.Text = "Медработник";
             this.btnHealthWorker.UseVisualStyleBackColor = true;
+            this.btnHealthWorker.Click += new System.EventHandler(this.btnHealthWorker_Click);
             // 
             // MenuView
             // 

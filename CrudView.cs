@@ -52,11 +52,23 @@ namespace logistic_BD
                 case "organization":
                     return new OrganizationEditView(mode, id, LoadData);
 
-                /*case "driver":
+                case "client":
+                    return new ClientEditView(mode, id, LoadData);
+
+                case "vehicle":
+                    return new VehicleEditView(mode, id, LoadData);
+
+                case "trailer":
+                    return new TrailerEditView(mode, id, LoadData);
+
+                case "driver":
                     return new DriverEditView(mode, id, LoadData);
 
-                case "client":
-                    return new ClientEditView(mode, id, LoadData);*/
+                case "health_worker":
+                    return new HealthWorkerEditView(mode, id, LoadData);
+
+                case "worker":
+                    return new WorkerEditView(mode, id, LoadData);
 
                 default:
                     throw new Exception("Unknown table");

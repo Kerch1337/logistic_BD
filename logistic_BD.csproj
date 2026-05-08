@@ -95,6 +95,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClientEditView.Designer.cs">
+      <DependentUpon>ClientEditView.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrudView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -102,11 +108,23 @@
       <DependentUpon>CrudView.cs</DependentUpon>
     </Compile>
     <Compile Include="Db.cs" />
+    <Compile Include="DriverEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DriverEditView.Designer.cs">
+      <DependentUpon>DriverEditView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HealthWorkerEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HealthWorkerEditView.Designer.cs">
+      <DependentUpon>HealthWorkerEditView.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -137,11 +155,38 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\OrganizationRepository.cs" />
     <Compile Include="Session.cs" />
+    <Compile Include="TrailerEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TrailerEditView.Designer.cs">
+      <DependentUpon>TrailerEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VehicleEditView.Designer.cs">
+      <DependentUpon>VehicleEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkerEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkerEditView.Designer.cs">
+      <DependentUpon>WorkerEditView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ClientEditView.resx">
+      <DependentUpon>ClientEditView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrudView.resx">
       <DependentUpon>CrudView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DriverEditView.resx">
+      <DependentUpon>DriverEditView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HealthWorkerEditView.resx">
+      <DependentUpon>HealthWorkerEditView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -164,6 +209,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TrailerEditView.resx">
+      <DependentUpon>TrailerEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VehicleEditView.resx">
+      <DependentUpon>VehicleEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkerEditView.resx">
+      <DependentUpon>WorkerEditView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
