@@ -55,5 +55,10 @@ namespace logistic_BD
             }
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

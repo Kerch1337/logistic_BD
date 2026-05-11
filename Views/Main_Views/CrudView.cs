@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using logistic_BD.Views.Doc_Views;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -69,6 +70,9 @@ namespace logistic_BD
 
                 case "worker":
                     return new WorkerEditView(mode, id, LoadData);
+
+                case "contract":
+                    return new ContractEditView(mode, id, LoadData);
 
                 default:
                     throw new Exception("Unknown table");

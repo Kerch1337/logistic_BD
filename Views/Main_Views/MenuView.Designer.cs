@@ -88,6 +88,7 @@
             this.btnCN.TabIndex = 22;
             this.btnCN.Text = "Транспортная накладная";
             this.btnCN.UseVisualStyleBackColor = true;
+            this.btnCN.Click += new System.EventHandler(this.btnCN_Click);
             // 
             // btnClient
             // 
@@ -107,6 +108,7 @@
             this.btnContract.TabIndex = 21;
             this.btnContract.Text = "Договор-заявка";
             this.btnContract.UseVisualStyleBackColor = true;
+            this.btnContract.Click += new System.EventHandler(this.btnContract_Click);
             // 
             // btnVehicle
             // 
@@ -126,6 +128,7 @@
             this.btnWaybill.TabIndex = 20;
             this.btnWaybill.Text = "Путевой Лист";
             this.btnWaybill.UseVisualStyleBackColor = true;
+            this.btnWaybill.Click += new System.EventHandler(this.btnWaybill_Click);
             // 
             // btnTrailer
             // 

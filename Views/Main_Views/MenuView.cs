@@ -66,6 +66,27 @@ namespace logistic_BD
 
             main.ShowView(new CrudView("health_worker"));
         }
+
+        private void btnWaybill_Click(object sender, EventArgs e)
+        {
+            MainForm main = (MainForm)this.FindForm();
+
+            main.ShowView(new CrudView("waybill"));
+        }
+
+        private void btnContract_Click(object sender, EventArgs e)
+        {
+            MainForm main = (MainForm)this.FindForm();
+
+            main.ShowView(new CrudView("contract"));
+        }
+
+        private void btnCN_Click(object sender, EventArgs e)
+        {
+            MainForm main = (MainForm)this.FindForm();
+
+            main.ShowView(new CrudView("consignment_note"));
+        }
     }
 
 }
