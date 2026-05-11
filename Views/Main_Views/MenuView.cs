@@ -22,70 +22,70 @@ namespace logistic_BD
         {
             MainForm main = (MainForm)this.FindForm();
 
-            main.ShowView(new CrudView("organization"));
+            main.NavigateTo(new CrudView("organization"));
         }
 
         private void btnClient_Click(object sender, EventArgs e)
         {
             MainForm main = (MainForm)this.FindForm();
 
-            main.ShowView(new CrudView("client"));
+            main.NavigateTo(new CrudView("client"));
         }
 
         private void btnVehicle_Click(object sender, EventArgs e)
         {
             MainForm main = (MainForm)this.FindForm();
 
-            main.ShowView(new CrudView("vehicle"));
+            main.NavigateTo(new CrudView("vehicle"));
         }
 
         private void btnWorker_Click(object sender, EventArgs e)
         {
             MainForm main = (MainForm)this.FindForm();
 
-            main.ShowView(new CrudView("worker"));
+            main.NavigateTo(new CrudView("worker"));
         }
 
         private void btnTrailer_Click(object sender, EventArgs e)
         {
             MainForm main = (MainForm)this.FindForm();
 
-            main.ShowView(new CrudView("trailer"));
+            main.NavigateTo(new CrudView("trailer"));
         }
 
         private void btnDriver_Click(object sender, EventArgs e)
         {
             MainForm main = (MainForm)this.FindForm();
 
-            main.ShowView(new CrudView("driver"));
+            main.NavigateTo(new CrudView("driver"));
         }
 
         private void btnHealthWorker_Click(object sender, EventArgs e)
         {
             MainForm main = (MainForm)this.FindForm();
 
-            main.ShowView(new CrudView("health_worker"));
+            main.NavigateTo(new CrudView("health_worker"));
         }
 
         private void btnWaybill_Click(object sender, EventArgs e)
         {
             MainForm main = (MainForm)this.FindForm();
 
-            main.ShowView(new CrudView("waybill"));
+            main.NavigateTo(new CrudView("waybill"));
         }
 
         private void btnContract_Click(object sender, EventArgs e)
         {
             MainForm main = (MainForm)this.FindForm();
 
-            main.ShowView(new CrudView("contract"));
+            main.NavigateTo(new CrudView("contract"));
         }
 
         private void btnCN_Click(object sender, EventArgs e)
         {
             MainForm main = (MainForm)this.FindForm();
 
-            main.ShowView(new CrudView("consignment_note"));
+            main.NavigateTo(new CrudView("consignment_note"));
         }
     }
 

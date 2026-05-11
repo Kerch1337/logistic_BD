@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using logistic_BD.logistic_BD;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,15 +45,20 @@ namespace logistic_BD
 
                 if (reader.Read())
                 {
-                    txtId.Text = reader["driver_id"].ToString();
-                    txtLicenseId.Text = reader["license_id"].ToString();
+
+                    txtId.Text = reader.GetInt("driver_id")?.ToString();
+
+                    txtLicenseId.Text = reader.GetString("license_id");
+
                     dtpLicenseDate.Value = Convert.ToDateTime(reader["license_issue_date"]);
-                    txtSnils.Text = reader["snils"].ToString();
-                    txtPhone.Text = reader["phone"].ToString();
-                    txtPersonnelNumber.Text = reader["personnel_number"].ToString();
-                    txtFirstName.Text = reader["first_name"].ToString();
-                    txtLastName.Text = reader["last_name"].ToString();
-                    txtPatronymic.Text = reader["patronymic"].ToString();
+
+                    txtSnils.Text = reader.GetString("snils");
+                    txtPhone.Text = reader.GetString("phone");
+                    txtPersonnelNumber.Text = reader.GetString("personnel_number");
+
+                    txtFirstName.Text = reader.GetString("first_name");
+                    txtLastName.Text = reader.GetString("last_name");
+                    txtPatronymic.Text = reader.GetString("patronymic");
                 }
             }
         }

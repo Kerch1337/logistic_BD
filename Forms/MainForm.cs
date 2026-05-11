@@ -1,4 +1,5 @@
-﻿using System;
+﻿using logistic_BD.Views.Doc_Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace logistic_BD
 {
     public partial class MainForm : Form
     {
+        private Stack<UserControl> viewHistory = new Stack<UserControl>();
+
         public MainForm()
         {
             InitializeComponent();
@@ -51,7 +54,33 @@ namespace logistic_BD
             pnlMain.Controls.Add(view);
         }
 
+        public void NavigateTo(UserControl newView)
+        {
+            if (pnlMain.Controls.Count > 0)
+            {
+                viewHistory.Push(
+                    (UserControl)pnlMain.Controls[0]
+                );
+            }
 
+            ShowView(newView);
+        }
+
+        public void GoBack()
+        {
+            if (viewHistory.Count > 0)
+            {
+                UserControl view =
+                    viewHistory.Pop();
+
+                ShowView(view);
+
+                if (view is ContractEditView contractView)
+                {
+                    contractView.RefreshCombos();
+                }
+            }
+        }
 
         private void pnlMain_Paint(object sender, PaintEventArgs e)
         {

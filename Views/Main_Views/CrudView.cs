@@ -1,4 +1,5 @@
 ﻿using logistic_BD.Views.Doc_Views;
+using logistic_BD.Views.Subdoc_Views;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,24 @@ namespace logistic_BD
     public partial class CrudView : UserControl
     {
         private string tableName;
+
+        private int parentId = 0;
+
         public CrudView(string table)
         {
             InitializeComponent();
             tableName = table;
+            LoadData();
+        }
+
+        public CrudView(string table, int parentId)
+        {
+            InitializeComponent();
+
+            tableName = table;
+
+            this.parentId = parentId;
+
             LoadData();
         }
 
@@ -28,9 +43,26 @@ namespace logistic_BD
             {
                 conn.Open();
 
-                string sql = $"SELECT * FROM {tableName}";
+                string sql;
+
+                if (tableName == "cargo" && parentId != 0)
+                {
+                    sql =
+                    "SELECT * FROM cargo WHERE contract_id = @id";
+                }
+                else
+                {
+                    sql = $"SELECT * FROM {tableName}";
+                }
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sql, conn);
+
+                if (tableName == "cargo" && parentId != 0)
+                {
+                    adapter.SelectCommand.Parameters
+                        .AddWithValue("@id", parentId);
+                }
+
                 DataTable dt = new DataTable();
 
                 adapter.Fill(dt);
@@ -39,11 +71,19 @@ namespace logistic_BD
             }
         }
 
-        private void btnBack_Click_1(object sender, EventArgs e)
+        /*private void btnBack_Click_1(object sender, EventArgs e)
         {
             MainForm main = (MainForm)this.FindForm();
 
             main.ShowView(new MenuView());
+        }*/
+
+        private void btnBack_Click_1(object sender, EventArgs e)
+        {
+            MainForm main =
+                (MainForm)this.FindForm();
+
+            main.GoBack();
         }
 
         private UserControl CreateEditView(string mode, int id)
@@ -73,6 +113,9 @@ namespace logistic_BD
 
                 case "contract":
                     return new ContractEditView(mode, id, LoadData);
+
+                case "cargo":
+                    return new CargoEditView(mode, id, parentId, LoadData);
 
                 default:
                     throw new Exception("Unknown table");

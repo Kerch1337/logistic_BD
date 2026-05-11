@@ -95,11 +95,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbReaderExtensions.cs" />
     <Compile Include="Views\Doc_Views\ContractEditView.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Doc_Views\ContractEditView.Designer.cs">
       <DependentUpon>ContractEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Subdoc_Views\CargoEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Subdoc_Views\CargoEditView.Designer.cs">
+      <DependentUpon>CargoEditView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Tables_Views\ClientEditView.cs">
       <SubType>UserControl</SubType>
@@ -181,6 +188,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Doc_Views\ContractEditView.resx">
       <DependentUpon>ContractEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Subdoc_Views\CargoEditView.resx">
+      <DependentUpon>CargoEditView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tables_Views\ClientEditView.resx">
       <DependentUpon>ClientEditView.cs</DependentUpon>

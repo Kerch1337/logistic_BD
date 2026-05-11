@@ -62,6 +62,14 @@
             this.label15 = new System.Windows.Forms.Label();
             this.cmbUnloadingContact = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.btnOpenCustomer = new System.Windows.Forms.Button();
+            this.btnOpenConsignee = new System.Windows.Forms.Button();
+            this.btnOpenShipper = new System.Windows.Forms.Button();
+            this.btnOpenOrganization = new System.Windows.Forms.Button();
+            this.btnOpenPerformer = new System.Windows.Forms.Button();
+            this.btnOpenLoadingContact = new System.Windows.Forms.Button();
+            this.btnOpenUnloadingContact = new System.Windows.Forms.Button();
+            this.btnCargo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label6
@@ -355,10 +363,98 @@
             this.label16.TabIndex = 64;
             this.label16.Text = "Идентификатор контактного лица выгрузки";
             // 
+            // btnOpenCustomer
+            // 
+            this.btnOpenCustomer.Location = new System.Drawing.Point(465, 238);
+            this.btnOpenCustomer.Name = "btnOpenCustomer";
+            this.btnOpenCustomer.Size = new System.Drawing.Size(40, 23);
+            this.btnOpenCustomer.TabIndex = 66;
+            this.btnOpenCustomer.Text = "Ред.";
+            this.btnOpenCustomer.UseVisualStyleBackColor = true;
+            this.btnOpenCustomer.Click += new System.EventHandler(this.btnOpenCustomer_Click);
+            // 
+            // btnOpenConsignee
+            // 
+            this.btnOpenConsignee.Location = new System.Drawing.Point(700, 29);
+            this.btnOpenConsignee.Name = "btnOpenConsignee";
+            this.btnOpenConsignee.Size = new System.Drawing.Size(40, 23);
+            this.btnOpenConsignee.TabIndex = 67;
+            this.btnOpenConsignee.Text = "Ред.";
+            this.btnOpenConsignee.UseVisualStyleBackColor = true;
+            this.btnOpenConsignee.Click += new System.EventHandler(this.btnOpenConsignee_Click);
+            // 
+            // btnOpenShipper
+            // 
+            this.btnOpenShipper.Location = new System.Drawing.Point(700, 80);
+            this.btnOpenShipper.Name = "btnOpenShipper";
+            this.btnOpenShipper.Size = new System.Drawing.Size(40, 23);
+            this.btnOpenShipper.TabIndex = 68;
+            this.btnOpenShipper.Text = "Ред.";
+            this.btnOpenShipper.UseVisualStyleBackColor = true;
+            this.btnOpenShipper.Click += new System.EventHandler(this.btnOpenShipper_Click);
+            // 
+            // btnOpenOrganization
+            // 
+            this.btnOpenOrganization.Location = new System.Drawing.Point(700, 134);
+            this.btnOpenOrganization.Name = "btnOpenOrganization";
+            this.btnOpenOrganization.Size = new System.Drawing.Size(40, 23);
+            this.btnOpenOrganization.TabIndex = 69;
+            this.btnOpenOrganization.Text = "Ред.";
+            this.btnOpenOrganization.UseVisualStyleBackColor = true;
+            this.btnOpenOrganization.Click += new System.EventHandler(this.btnOpenOrganization_Click);
+            // 
+            // btnOpenPerformer
+            // 
+            this.btnOpenPerformer.Location = new System.Drawing.Point(700, 188);
+            this.btnOpenPerformer.Name = "btnOpenPerformer";
+            this.btnOpenPerformer.Size = new System.Drawing.Size(40, 23);
+            this.btnOpenPerformer.TabIndex = 70;
+            this.btnOpenPerformer.Text = "Ред.";
+            this.btnOpenPerformer.UseVisualStyleBackColor = true;
+            this.btnOpenPerformer.Click += new System.EventHandler(this.btnOpenPerformer_Click);
+            // 
+            // btnOpenLoadingContact
+            // 
+            this.btnOpenLoadingContact.Location = new System.Drawing.Point(700, 240);
+            this.btnOpenLoadingContact.Name = "btnOpenLoadingContact";
+            this.btnOpenLoadingContact.Size = new System.Drawing.Size(40, 23);
+            this.btnOpenLoadingContact.TabIndex = 71;
+            this.btnOpenLoadingContact.Text = "Ред.";
+            this.btnOpenLoadingContact.UseVisualStyleBackColor = true;
+            this.btnOpenLoadingContact.Click += new System.EventHandler(this.btnOpenLoadingContact_Click);
+            // 
+            // btnOpenUnloadingContact
+            // 
+            this.btnOpenUnloadingContact.Location = new System.Drawing.Point(700, 300);
+            this.btnOpenUnloadingContact.Name = "btnOpenUnloadingContact";
+            this.btnOpenUnloadingContact.Size = new System.Drawing.Size(40, 23);
+            this.btnOpenUnloadingContact.TabIndex = 72;
+            this.btnOpenUnloadingContact.Text = "Ред.";
+            this.btnOpenUnloadingContact.UseVisualStyleBackColor = true;
+            this.btnOpenUnloadingContact.Click += new System.EventHandler(this.btnOpenUnloadingContact_Click);
+            // 
+            // btnCargo
+            // 
+            this.btnCargo.Location = new System.Drawing.Point(190, 294);
+            this.btnCargo.Name = "btnCargo";
+            this.btnCargo.Size = new System.Drawing.Size(114, 34);
+            this.btnCargo.TabIndex = 73;
+            this.btnCargo.Text = "Добавить груз";
+            this.btnCargo.UseVisualStyleBackColor = true;
+            this.btnCargo.Click += new System.EventHandler(this.btnCargo_Click);
+            // 
             // ContractEditView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnCargo);
+            this.Controls.Add(this.btnOpenUnloadingContact);
+            this.Controls.Add(this.btnOpenLoadingContact);
+            this.Controls.Add(this.btnOpenPerformer);
+            this.Controls.Add(this.btnOpenOrganization);
+            this.Controls.Add(this.btnOpenShipper);
+            this.Controls.Add(this.btnOpenConsignee);
+            this.Controls.Add(this.btnOpenCustomer);
             this.Controls.Add(this.cmbUnloadingContact);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.cmbLoadingContact);
@@ -435,5 +531,13 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cmbUnloadingContact;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnOpenCustomer;
+        private System.Windows.Forms.Button btnOpenConsignee;
+        private System.Windows.Forms.Button btnOpenShipper;
+        private System.Windows.Forms.Button btnOpenOrganization;
+        private System.Windows.Forms.Button btnOpenPerformer;
+        private System.Windows.Forms.Button btnOpenLoadingContact;
+        private System.Windows.Forms.Button btnOpenUnloadingContact;
+        private System.Windows.Forms.Button btnCargo;
     }
 }

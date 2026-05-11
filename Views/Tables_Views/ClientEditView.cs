@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using logistic_BD.logistic_BD;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,15 +46,17 @@ namespace logistic_BD
 
                 if (reader.Read())
                 {
-                    txtId.Text = reader["client_id"].ToString();
-                    txtInn.Text = reader["inn"].ToString();
-                    txtOrgName.Text = reader["org_name"].ToString();
-                    txtAddress.Text = reader["address"].ToString();
-                    txtPhone.Text = reader["phone"].ToString();
 
-                    txtLN.Text = reader["first_name"].ToString();
-                    txtFN.Text = reader["last_name"].ToString();
-                    txtPatr.Text = reader["patronymic"].ToString();
+                    txtId.Text = reader.GetInt("client_id")?.ToString();
+
+                    txtInn.Text = reader.GetString("inn");
+                    txtOrgName.Text = reader.GetString("org_name");
+                    txtAddress.Text = reader.GetString("address");
+                    txtPhone.Text = reader.GetString("phone");
+
+                    txtLN.Text = reader.GetString("first_name");
+                    txtFN.Text = reader.GetString("last_name");
+                    txtPatr.Text = reader.GetString("patronymic");
                 }
             }
         }

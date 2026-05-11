@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using logistic_BD.logistic_BD;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -50,14 +51,18 @@ namespace logistic_BD
 
                 if (reader.Read())
                 {
-                    txtId.Text = reader["vehicle_id"].ToString();
-                    txtRegNumber.Text = reader["reg_number"].ToString();
-                    txtType.Text = reader["type"].ToString();
-                    txtBrand.Text = reader["brand"].ToString();
-                    txtModel.Text = reader["model"].ToString();
-                    txtCapacity.Text = reader["capacity"].ToString();
-                    txtLoadCapacity.Text = reader["load_capacity"].ToString();
-                    cmbOwnership.SelectedItem = reader["ownership_type"].ToString();
+
+                    txtId.Text = reader.GetInt("vehicle_id")?.ToString();
+
+                    txtRegNumber.Text = reader.GetString("reg_number");
+                    txtType.Text = reader.GetString("type");
+                    txtBrand.Text = reader.GetString("brand");
+                    txtModel.Text = reader.GetString("model");
+
+                    txtCapacity.Text = reader.GetDecimal("capacity").ToString();
+                    txtLoadCapacity.Text = reader.GetDecimal("load_capacity").ToString();
+
+                    cmbOwnership.SelectedItem = reader.GetString("ownership_type");
                 }
             }
         }
