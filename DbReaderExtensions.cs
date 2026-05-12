@@ -17,7 +17,7 @@ namespace logistic_BD
         public static class DbReaderExtensions
         {
 
-            public static DateTime? GetDateTime(this MySqlDataReader reader, string column)
+            /*public static DateTime? GetDateTime(this MySqlDataReader reader, string column)
             {
                 return reader[column] == DBNull.Value
                     ? (DateTime?)null
@@ -43,6 +43,18 @@ namespace logistic_BD
                 return reader[column] == DBNull.Value
                     ? (decimal?)null
                     : Convert.ToDecimal(reader[column]);
+            }*/
+
+            public static class DbSafe
+            {
+                public static string S(MySqlDataReader r, string c)
+                    => r[c] == DBNull.Value ? "" : r[c].ToString();
+
+                public static int? I(MySqlDataReader r, string c)
+                    => r[c] == DBNull.Value ? (int?)null : Convert.ToInt32(r[c]);
+
+                public static decimal? D(MySqlDataReader r, string c)
+                    => r[c] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(r[c]);
             }
         }
     }

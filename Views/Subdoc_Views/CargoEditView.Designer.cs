@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.btnCargoState = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -62,7 +61,6 @@
             this.txtDensity = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.txtHeight = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SuspendLayout();
             // 
             // btnCargoState
@@ -337,11 +335,6 @@
             this.txtHeight.Size = new System.Drawing.Size(176, 20);
             this.txtHeight.TabIndex = 132;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // CargoEditView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -422,6 +415,5 @@
         private System.Windows.Forms.TextBox txtDensity;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtHeight;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

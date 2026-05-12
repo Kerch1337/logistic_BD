@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static logistic_BD.logistic_BD.DbReaderExtensions;
 
 namespace logistic_BD
 {
@@ -30,6 +31,7 @@ namespace logistic_BD
                 LoadData();
         }
 
+
         private void LoadData()
         {
             using (var conn = Db.GetConnection())
@@ -45,20 +47,23 @@ namespace logistic_BD
 
                 if (reader.Read())
                 {
+                    txtId.Text = DbSafe.I(reader, "driver_id")?.ToString() ?? "";
 
-                    txtId.Text = reader.GetInt("driver_id")?.ToString();
-
-                    txtLicenseId.Text = reader.GetString("license_id");
+                    txtLicenseId.Text = DbSafe.S(reader, "license_id");
 
                     dtpLicenseDate.Value = Convert.ToDateTime(reader["license_issue_date"]);
 
-                    txtSnils.Text = reader.GetString("snils");
-                    txtPhone.Text = reader.GetString("phone");
-                    txtPersonnelNumber.Text = reader.GetString("personnel_number");
+                    txtSnils.Text = DbSafe.S(reader, "snils");
 
-                    txtFirstName.Text = reader.GetString("first_name");
-                    txtLastName.Text = reader.GetString("last_name");
-                    txtPatronymic.Text = reader.GetString("patronymic");
+                    txtPhone.Text = DbSafe.S(reader, "phone");
+
+                    txtPersonnelNumber.Text = DbSafe.S(reader, "personnel_number");
+
+                    txtFirstName.Text = DbSafe.S(reader, "first_name");
+
+                    txtLastName.Text = DbSafe.S(reader, "last_name");
+
+                    txtPatronymic.Text = DbSafe.S(reader, "patronymic");
                 }
             }
         }

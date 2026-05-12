@@ -491,6 +491,7 @@
             this.Controls.Add(this.txtContractNum);
             this.Name = "ContractEditView";
             this.Size = new System.Drawing.Size(746, 450);
+            this.Load += new System.EventHandler(this.ContractEditView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

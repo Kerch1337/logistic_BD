@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static logistic_BD.logistic_BD.DbReaderExtensions;
 
 namespace logistic_BD.Views.Subdoc_Views
 {
@@ -44,62 +45,44 @@ namespace logistic_BD.Views.Subdoc_Views
             {
                 conn.Open();
 
-                string sql =
-                    "SELECT * FROM cargo WHERE cargo_id = @id";
+                string sql = "SELECT * FROM cargo WHERE cargo_id = @id";
 
-                MySqlCommand cmd =
-                    new MySqlCommand(sql, conn);
-
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", id);
 
                 var reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
-                    txtId.Text =
-                        reader.GetInt("cargo_id")?.ToString();
+                    txtId.Text = DbSafe.I(reader, "cargo_id")?.ToString();
 
-                    txtCargoName.Text =
-                        reader.GetString("cargo_name");
+                    txtCargoName.Text = DbSafe.S(reader, "cargo_name");
 
-                    txtAdditionalInfo.Text =
-                        reader.GetString("additional_info");
+                    txtAdditionalInfo.Text = DbSafe.S(reader, "additional_info");
 
-                    txtCargoCondition.Text =
-                        reader.GetString("cargo_сondition");
+                    txtCargoCondition.Text = DbSafe.S(reader, "cargo_сondition");
 
-                    txtPackageCount.Text =
-                        reader.GetInt("package_count")?.ToString();
+                    txtPackageCount.Text = DbSafe.I(reader, "package_count")?.ToString();
 
-                    txtMarking.Text =
-                        reader.GetString("marking");
+                    txtMarking.Text = DbSafe.S(reader, "marking");
 
-                    txtPackagingType.Text =
-                        reader.GetString("packaging_type");
+                    txtPackagingType.Text = DbSafe.S(reader, "packaging_type");
 
-                    txtPackingMethod.Text =
-                        reader.GetString("packing_method");
+                    txtPackingMethod.Text = DbSafe.S(reader, "packing_method");
 
-                    txtGrossWeight.Text =
-                        reader.GetDecimal("gross_weight").ToString();
+                    txtGrossWeight.Text = DbSafe.D(reader, "gross_weight")?.ToString() ?? "";
 
-                    txtNetWeight.Text =
-                        reader.GetDecimal("net_weight").ToString();
+                    txtNetWeight.Text = DbSafe.D(reader, "net_weight")?.ToString() ?? "";
 
-                    txtLength.Text =
-                        reader.GetDecimal("length").ToString();
+                    txtLength.Text = DbSafe.D(reader, "length")?.ToString() ?? "";
 
-                    txtWidth.Text =
-                        reader.GetDecimal("width").ToString();
+                    txtWidth.Text = DbSafe.D(reader, "width")?.ToString() ?? "";
 
-                    txtHeight.Text =
-                        reader.GetDecimal("height").ToString();
+                    txtHeight.Text = DbSafe.D(reader, "height")?.ToString() ?? "";
 
-                    txtVolume.Text =
-                        reader.GetDecimal("volume").ToString();
+                    txtVolume.Text = DbSafe.D(reader, "volume")?.ToString() ?? "";
 
-                    txtDensity.Text =
-                        reader.GetDecimal("density").ToString();
+                    txtDensity.Text = DbSafe.D(reader, "density")?.ToString() ?? "";
                 }
             }
         }

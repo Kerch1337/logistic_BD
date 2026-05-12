@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static logistic_BD.logistic_BD.DbReaderExtensions;
 
 namespace logistic_BD
 {
@@ -47,12 +48,15 @@ namespace logistic_BD
 
                 if (reader.Read())
                 {
+                    txtId.Text = DbSafe.I(reader, "worker_id")?.ToString() ?? "";
 
-                    txtId.Text = reader.GetInt("worker_id")?.ToString();
-                    txtFullName.Text = reader.GetString("full_name");
-                    txtPosition.Text = reader.GetString("position");
-                    txtOrgName.Text = reader.GetString("org_name");
-                    txtPhone.Text = reader.GetString("phone");
+                    txtFullName.Text = DbSafe.S(reader, "full_name");
+
+                    txtPosition.Text = DbSafe.S(reader, "position");
+
+                    txtOrgName.Text = DbSafe.S(reader, "org_name");
+
+                    txtPhone.Text = DbSafe.S(reader, "phone");
                 }
             }
         }

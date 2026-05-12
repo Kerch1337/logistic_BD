@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static logistic_BD.logistic_BD.DbReaderExtensions;
 
 namespace logistic_BD.Views.Doc_Views
 {
@@ -34,7 +35,6 @@ namespace logistic_BD.Views.Doc_Views
                 LoadData();
         }
 
-
         private void LoadData()
         {
             using (var conn = Db.GetConnection())
@@ -42,7 +42,7 @@ namespace logistic_BD.Views.Doc_Views
                 conn.Open();
 
                 string sql =
-                "SELECT * FROM contract WHERE contract_id = @id";
+                    "SELECT * FROM contract WHERE contract_id = @id";
 
                 MySqlCommand cmd =
                     new MySqlCommand(sql, conn);
@@ -54,25 +54,25 @@ namespace logistic_BD.Views.Doc_Views
                 if (reader.Read())
                 {
                     txtId.Text =
-    reader.GetInt("contract_id")?.ToString();
+                        DbSafe.I(reader, "contract_id")?.ToString() ?? "";
 
                     txtContractNum.Text =
-                        reader.GetInt("contract_num")?.ToString();
+                        DbSafe.I(reader, "contract_num")?.ToString() ?? "";
 
                     dtpContractDate.Value =
                         Convert.ToDateTime(reader["contract_date"]);
 
                     txtLoadingAddress.Text =
-                        reader.GetString("loading_address");
+                        DbSafe.S(reader, "loading_address");
 
                     txtUnloadingAddress.Text =
-                        reader.GetString("unloading_address");
+                        DbSafe.S(reader, "unloading_address");
 
                     txtPaymentTerms.Text =
-                        reader.GetString("payment_terms");
+                        DbSafe.S(reader, "payment_terms");
 
                     txtCostServices.Text =
-                        reader.GetDecimal("cost_services").ToString() ?? "";
+                        DbSafe.D(reader, "cost_services")?.ToString() ?? "";
 
                     if (reader["loading_time"] != DBNull.Value)
                     {
@@ -87,25 +87,25 @@ namespace logistic_BD.Views.Doc_Views
                     }
 
                     cmbCustomer.SelectedValue =
-                        reader.GetInt("customer_id");
+                        DbSafe.I(reader, "customer_id");
 
                     cmbConsignee.SelectedValue =
-                        reader.GetInt("consignee_id");
+                        DbSafe.I(reader, "consignee_id");
 
                     cmbShipper.SelectedValue =
-                        reader.GetInt("shipper_id");
+                        DbSafe.I(reader, "shipper_id");
 
                     cmbOrganization.SelectedValue =
-                        reader.GetInt("organization_id");
+                        DbSafe.I(reader, "organization_id");
 
                     cmbPerformer.SelectedValue =
-                        reader.GetInt("performer_id");
+                        DbSafe.I(reader, "performer_id");
 
                     cmbLoadingContact.SelectedValue =
-                        reader.GetInt("loading_contact_id");
+                        DbSafe.I(reader, "loading_contact_id");
 
                     cmbUnloadingContact.SelectedValue =
-                        reader.GetInt("unloading_contact_id");
+                        DbSafe.I(reader, "unloading_contact_id");
                 }
             }
         }
@@ -431,6 +431,11 @@ namespace logistic_BD.Views.Doc_Views
             main.NavigateTo(
                 new CrudView("cargo", id)
             );
+        }
+
+        private void ContractEditView_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

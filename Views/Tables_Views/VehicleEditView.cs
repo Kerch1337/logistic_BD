@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static logistic_BD.logistic_BD.DbReaderExtensions;
 
 namespace logistic_BD
 {
@@ -51,18 +52,21 @@ namespace logistic_BD
 
                 if (reader.Read())
                 {
+                    txtId.Text = DbSafe.I(reader, "vehicle_id")?.ToString() ?? "";
 
-                    txtId.Text = reader.GetInt("vehicle_id")?.ToString();
+                    txtRegNumber.Text = DbSafe.S(reader, "reg_number");
 
-                    txtRegNumber.Text = reader.GetString("reg_number");
-                    txtType.Text = reader.GetString("type");
-                    txtBrand.Text = reader.GetString("brand");
-                    txtModel.Text = reader.GetString("model");
+                    txtType.Text = DbSafe.S(reader, "type");
 
-                    txtCapacity.Text = reader.GetDecimal("capacity").ToString();
-                    txtLoadCapacity.Text = reader.GetDecimal("load_capacity").ToString();
+                    txtBrand.Text = DbSafe.S(reader, "brand");
 
-                    cmbOwnership.SelectedItem = reader.GetString("ownership_type");
+                    txtModel.Text = DbSafe.S(reader, "model");
+
+                    txtCapacity.Text = DbSafe.D(reader, "capacity")?.ToString() ?? "";
+
+                    txtLoadCapacity.Text = DbSafe.D(reader, "load_capacity")?.ToString() ?? "";
+
+                    cmbOwnership.SelectedItem = DbSafe.S(reader, "ownership_type");
                 }
             }
         }

@@ -130,6 +130,9 @@ namespace logistic_BD
                 case "cargo_state":
                     return new CargoStateEditView(mode,id,parentId,LoadData);
 
+                case "waybill":
+                    return new WaybillEditView(mode, id, LoadData);
+
                 default:
                     throw new Exception("Unknown table");
             }

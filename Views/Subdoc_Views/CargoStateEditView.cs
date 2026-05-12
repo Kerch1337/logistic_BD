@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static logistic_BD.logistic_BD.DbReaderExtensions;
 
 namespace logistic_BD.Views.Subdoc_Views
 {
@@ -42,51 +43,30 @@ namespace logistic_BD.Views.Subdoc_Views
             {
                 conn.Open();
 
-                string sql =
-                    "SELECT * FROM cargo_state WHERE cargo_state_id = @id";
+                string sql = "SELECT * FROM cargo_state WHERE cargo_state_id = @id";
 
-                MySqlCommand cmd =
-                    new MySqlCommand(sql, conn);
-
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", id);
 
                 var reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
-                    txtId.Text =
-                        reader.GetInt("cargo_state_id")?.ToString();
+                    txtId.Text = DbSafe.I(reader, "cargo_state_id")?.ToString() ?? "";
 
-                    cmbStateType.SelectedItem =
-                        reader.GetString("state_type");
+                    cmbStateType.SelectedItem = DbSafe.S(reader, "state_type");
 
-                    txtActualState.Text =
-                        reader["actual_state"] == DBNull.Value
-                            ? ""
-                            : reader["actual_state"].ToString();
+                    txtActualState.Text = DbSafe.S(reader, "actual_state");
 
-                    txtActualPackageCount.Text =
-                        reader.GetInt("actual_package_count")?.ToString();
+                    txtActualPackageCount.Text = DbSafe.I(reader, "actual_package_count")?.ToString() ?? "";
 
-                    txtActualGrossWeight.Text =
-                        reader["actual_gross_weight"] == DBNull.Value
-                            ? ""
-                            : Convert.ToDecimal(reader["actual_gross_weight"]).ToString();
+                    txtActualGrossWeight.Text = DbSafe.D(reader, "actual_gross_weight")?.ToString() ?? "";
 
-                    txtActualGrossWeight.Text =
-                        reader["actual_net_weight"] == DBNull.Value
-                            ? ""
-                            : Convert.ToDecimal(reader["actual_net_weight"]).ToString();
+                    txtActualNetWeight.Text = DbSafe.D(reader, "actual_net_weight")?.ToString() ?? "";
 
-                    txtActualGrossWeight.Text =
-                        reader["actual_density"] == DBNull.Value
-                            ? ""
-                            : Convert.ToDecimal(reader["actual_density"]).ToString();
+                    txtActualDensity.Text = DbSafe.D(reader, "actual_density")?.ToString() ?? "";
 
-                    txtActualState.Text =
-                        reader["remarks"] == DBNull.Value
-                            ? ""
-                            : reader["remarks"].ToString();
+                    txtRemarks.Text = DbSafe.S(reader, "remarks");
                 }
             }
         }
