@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using logistic_BD.Views.Subdoc_Views;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -87,8 +88,12 @@ namespace logistic_BD.Views.Doc_Views
                 cmbController.DisplayMember = "worker_id";
             }
 
+            cmbTransportType.Items.Add("Регулярная перевозка пассажиров и багажа");
+            cmbTransportType.Items.Add("Перевозка пассажиров и багажа по заказу");
+            cmbTransportType.Items.Add("Перевозка пассажиров и багажа легковым такси");
+            cmbTransportType.Items.Add("Организованная перевозка группы детей");
             cmbTransportType.Items.Add("Перевозка грузов");
-            cmbTransportType.Items.Add("Перевозка пассажиров и багажа");
+            cmbTransportType.Items.Add("Перевозка для собственных нужд");
 
             cmbMessageType.Items.Add("Городское");
             cmbMessageType.Items.Add("Пригородное");
@@ -326,5 +331,107 @@ namespace logistic_BD.Views.Doc_Views
         {
             GoBack();
         }
+
+        private void open(string str)
+        {
+            MainForm main = (MainForm)this.FindForm();
+
+            main.NavigateTo(
+                new CrudView(str)
+            );
+        }
+
+        private void btnOpenVehicle_Click(object sender, EventArgs e)
+        {
+            open("vehicle");
+        }
+
+        private void btnOpenDriver_Click(object sender, EventArgs e)
+        {
+            open("driver");
+        }
+
+        private void btnOpenPersonFillingOut_Click(object sender, EventArgs e)
+        {
+            open("worker");
+        }
+
+        private void btnOpenMechanic_Click(object sender, EventArgs e)
+        {
+            open("worker");
+        }
+
+        private void btnOpenCustomer_Click(object sender, EventArgs e)
+        {
+            open("client");
+        }
+
+        private void btnOpenOrg_Click(object sender, EventArgs e)
+        {
+            open("organization");
+        }
+
+        private void btnOpenController_Click(object sender, EventArgs e)
+        {
+            open("worker");
+        }
+
+
+        private void btnMedicalExam_Click(object sender, EventArgs e)
+        {
+            if (mode == "add")
+            {
+                MessageBox.Show("Сначала сохраните путевой лист");
+                return;
+            }
+
+            MainForm main = (MainForm)this.FindForm();
+
+            main.NavigateTo(
+                new CrudView("medical_exam", id)
+            );
+        }
+
+        private void btnWork_Click(object sender, EventArgs e)
+        {
+            if (mode == "add")
+            {
+                MessageBox.Show("Сначала сохраните путевой лист");
+                return;
+            }
+
+            MainForm main = (MainForm)this.FindForm();
+
+            main.NavigateTo(
+                new CrudView("driver_vehicle_work", id)
+            );
+        }
+
+        private void btnTrailer_Click(object sender, EventArgs e)
+        {
+            if (mode == "add")
+            {
+                MessageBox.Show(
+                    "Сначала сохраните путевой лист");
+
+                return;
+            }
+
+            MainForm main =
+                (MainForm)this.FindForm();
+
+            main.ShowView(
+                new WaybillTrailerView(
+                    id,
+                    () =>
+                    {
+                        main.ShowView(new WaybillEditView("edit", id, refresh));
+                    }
+                )
+            );
+
+        }
+
+
     }
 }

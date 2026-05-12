@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCargoState = new System.Windows.Forms.Button();
+            this.btnMedicalExam = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -51,41 +51,42 @@
             this.label10 = new System.Windows.Forms.Label();
             this.dtpPreTripTime = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnOpenCustomer = new System.Windows.Forms.Button();
+            this.btnOpenVehicle = new System.Windows.Forms.Button();
             this.cmbVehicle = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnOpenDriver = new System.Windows.Forms.Button();
             this.cmbDriver = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnOpenCustomer = new System.Windows.Forms.Button();
             this.cmbCustomer = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnOpenOrg = new System.Windows.Forms.Button();
             this.cmbOrganization = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnOpenPersonFillingOut = new System.Windows.Forms.Button();
             this.cmbPersonFillingOut = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnOpenMechanic = new System.Windows.Forms.Button();
             this.cmbMechanic = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnOpenController = new System.Windows.Forms.Button();
             this.cmbController = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnTrailer = new System.Windows.Forms.Button();
+            this.btnWork = new System.Windows.Forms.Button();
             this.dtpArrivalTime = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnCargoState
+            // btnMedicalExam
             // 
-            this.btnCargoState.Location = new System.Drawing.Point(59, 327);
-            this.btnCargoState.Name = "btnCargoState";
-            this.btnCargoState.Size = new System.Drawing.Size(114, 34);
-            this.btnCargoState.TabIndex = 148;
-            this.btnCargoState.Text = "Медосмотры";
-            this.btnCargoState.UseVisualStyleBackColor = true;
+            this.btnMedicalExam.Location = new System.Drawing.Point(59, 327);
+            this.btnMedicalExam.Name = "btnMedicalExam";
+            this.btnMedicalExam.Size = new System.Drawing.Size(114, 34);
+            this.btnMedicalExam.TabIndex = 148;
+            this.btnMedicalExam.Text = "Медосмотры";
+            this.btnMedicalExam.UseVisualStyleBackColor = true;
+            this.btnMedicalExam.Click += new System.EventHandler(this.btnMedicalExam_Click);
             // 
             // label3
             // 
@@ -282,14 +283,15 @@
             this.label11.TabIndex = 183;
             this.label11.Text = "Время предрейсового контроля";
             // 
-            // btnOpenCustomer
+            // btnOpenVehicle
             // 
-            this.btnOpenCustomer.Location = new System.Drawing.Point(211, 287);
-            this.btnOpenCustomer.Name = "btnOpenCustomer";
-            this.btnOpenCustomer.Size = new System.Drawing.Size(40, 23);
-            this.btnOpenCustomer.TabIndex = 187;
-            this.btnOpenCustomer.Text = "Ред.";
-            this.btnOpenCustomer.UseVisualStyleBackColor = true;
+            this.btnOpenVehicle.Location = new System.Drawing.Point(211, 287);
+            this.btnOpenVehicle.Name = "btnOpenVehicle";
+            this.btnOpenVehicle.Size = new System.Drawing.Size(40, 23);
+            this.btnOpenVehicle.TabIndex = 187;
+            this.btnOpenVehicle.Text = "Ред.";
+            this.btnOpenVehicle.UseVisualStyleBackColor = true;
+            this.btnOpenVehicle.Click += new System.EventHandler(this.btnOpenVehicle_Click);
             // 
             // cmbVehicle
             // 
@@ -308,14 +310,15 @@
             this.label12.TabIndex = 185;
             this.label12.Text = "Идентификатор ТС";
             // 
-            // button1
+            // btnOpenDriver
             // 
-            this.button1.Location = new System.Drawing.Point(698, 29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 23);
-            this.button1.TabIndex = 190;
-            this.button1.Text = "Ред.";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnOpenDriver.Location = new System.Drawing.Point(698, 29);
+            this.btnOpenDriver.Name = "btnOpenDriver";
+            this.btnOpenDriver.Size = new System.Drawing.Size(40, 23);
+            this.btnOpenDriver.TabIndex = 190;
+            this.btnOpenDriver.Text = "Ред.";
+            this.btnOpenDriver.UseVisualStyleBackColor = true;
+            this.btnOpenDriver.Click += new System.EventHandler(this.btnOpenDriver_Click);
             // 
             // cmbDriver
             // 
@@ -334,14 +337,15 @@
             this.label13.TabIndex = 188;
             this.label13.Text = "Идентификатор водителя";
             // 
-            // button2
+            // btnOpenCustomer
             // 
-            this.button2.Location = new System.Drawing.Point(698, 186);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(40, 23);
-            this.button2.TabIndex = 193;
-            this.button2.Text = "Ред.";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnOpenCustomer.Location = new System.Drawing.Point(698, 186);
+            this.btnOpenCustomer.Name = "btnOpenCustomer";
+            this.btnOpenCustomer.Size = new System.Drawing.Size(40, 23);
+            this.btnOpenCustomer.TabIndex = 193;
+            this.btnOpenCustomer.Text = "Ред.";
+            this.btnOpenCustomer.UseVisualStyleBackColor = true;
+            this.btnOpenCustomer.Click += new System.EventHandler(this.btnOpenCustomer_Click);
             // 
             // cmbCustomer
             // 
@@ -361,14 +365,15 @@
             this.label14.TabIndex = 191;
             this.label14.Text = "Идентификатор заказчика";
             // 
-            // button3
+            // btnOpenOrg
             // 
-            this.button3.Location = new System.Drawing.Point(698, 236);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(40, 23);
-            this.button3.TabIndex = 196;
-            this.button3.Text = "Ред.";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnOpenOrg.Location = new System.Drawing.Point(698, 236);
+            this.btnOpenOrg.Name = "btnOpenOrg";
+            this.btnOpenOrg.Size = new System.Drawing.Size(40, 23);
+            this.btnOpenOrg.TabIndex = 196;
+            this.btnOpenOrg.Text = "Ред.";
+            this.btnOpenOrg.UseVisualStyleBackColor = true;
+            this.btnOpenOrg.Click += new System.EventHandler(this.btnOpenOrg_Click);
             // 
             // cmbOrganization
             // 
@@ -387,14 +392,15 @@
             this.label15.TabIndex = 194;
             this.label15.Text = "Идентификатор орг., запол. ПЛ";
             // 
-            // button4
+            // btnOpenPersonFillingOut
             // 
-            this.button4.Location = new System.Drawing.Point(698, 81);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(40, 23);
-            this.button4.TabIndex = 199;
-            this.button4.Text = "Ред.";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnOpenPersonFillingOut.Location = new System.Drawing.Point(698, 81);
+            this.btnOpenPersonFillingOut.Name = "btnOpenPersonFillingOut";
+            this.btnOpenPersonFillingOut.Size = new System.Drawing.Size(40, 23);
+            this.btnOpenPersonFillingOut.TabIndex = 199;
+            this.btnOpenPersonFillingOut.Text = "Ред.";
+            this.btnOpenPersonFillingOut.UseVisualStyleBackColor = true;
+            this.btnOpenPersonFillingOut.Click += new System.EventHandler(this.btnOpenPersonFillingOut_Click);
             // 
             // cmbPersonFillingOut
             // 
@@ -413,14 +419,15 @@
             this.label16.TabIndex = 197;
             this.label16.Text = "Идентификатор лица оформ. ПЛ";
             // 
-            // button5
+            // btnOpenMechanic
             // 
-            this.button5.Location = new System.Drawing.Point(698, 132);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(40, 23);
-            this.button5.TabIndex = 202;
-            this.button5.Text = "Ред.";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnOpenMechanic.Location = new System.Drawing.Point(698, 132);
+            this.btnOpenMechanic.Name = "btnOpenMechanic";
+            this.btnOpenMechanic.Size = new System.Drawing.Size(40, 23);
+            this.btnOpenMechanic.TabIndex = 202;
+            this.btnOpenMechanic.Text = "Ред.";
+            this.btnOpenMechanic.UseVisualStyleBackColor = true;
+            this.btnOpenMechanic.Click += new System.EventHandler(this.btnOpenMechanic_Click);
             // 
             // cmbMechanic
             // 
@@ -439,14 +446,15 @@
             this.label17.TabIndex = 200;
             this.label17.Text = "Идентификатор механика";
             // 
-            // button6
+            // btnOpenController
             // 
-            this.button6.Location = new System.Drawing.Point(698, 287);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(40, 23);
-            this.button6.TabIndex = 205;
-            this.button6.Text = "Ред.";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnOpenController.Location = new System.Drawing.Point(698, 287);
+            this.btnOpenController.Name = "btnOpenController";
+            this.btnOpenController.Size = new System.Drawing.Size(40, 23);
+            this.btnOpenController.TabIndex = 205;
+            this.btnOpenController.Text = "Ред.";
+            this.btnOpenController.UseVisualStyleBackColor = true;
+            this.btnOpenController.Click += new System.EventHandler(this.btnOpenController_Click);
             // 
             // cmbController
             // 
@@ -465,23 +473,25 @@
             this.label18.TabIndex = 203;
             this.label18.Text = "Идентификатор контролера тех. состояния";
             // 
-            // button7
+            // btnTrailer
             // 
-            this.button7.Location = new System.Drawing.Point(308, 327);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(114, 34);
-            this.button7.TabIndex = 206;
-            this.button7.Text = "Прицепы";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnTrailer.Location = new System.Drawing.Point(308, 327);
+            this.btnTrailer.Name = "btnTrailer";
+            this.btnTrailer.Size = new System.Drawing.Size(114, 34);
+            this.btnTrailer.TabIndex = 206;
+            this.btnTrailer.Text = "Прицепы";
+            this.btnTrailer.UseVisualStyleBackColor = true;
+            this.btnTrailer.Click += new System.EventHandler(this.btnTrailer_Click);
             // 
-            // button8
+            // btnWork
             // 
-            this.button8.Location = new System.Drawing.Point(549, 327);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(119, 34);
-            this.button8.TabIndex = 207;
-            this.button8.Text = "Работа водителя и автомобиля";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnWork.Location = new System.Drawing.Point(549, 327);
+            this.btnWork.Name = "btnWork";
+            this.btnWork.Size = new System.Drawing.Size(119, 34);
+            this.btnWork.TabIndex = 207;
+            this.btnWork.Text = "Работа водителя и автомобиля";
+            this.btnWork.UseVisualStyleBackColor = true;
+            this.btnWork.Click += new System.EventHandler(this.btnWork_Click);
             // 
             // dtpArrivalTime
             // 
@@ -507,27 +517,27 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dtpArrivalTime);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.btnWork);
+            this.Controls.Add(this.btnTrailer);
+            this.Controls.Add(this.btnOpenController);
             this.Controls.Add(this.cmbController);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnOpenMechanic);
             this.Controls.Add(this.cmbMechanic);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnOpenPersonFillingOut);
             this.Controls.Add(this.cmbPersonFillingOut);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnOpenOrg);
             this.Controls.Add(this.cmbOrganization);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnOpenCustomer);
             this.Controls.Add(this.cmbCustomer);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnOpenDriver);
             this.Controls.Add(this.cmbDriver);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.btnOpenCustomer);
+            this.Controls.Add(this.btnOpenVehicle);
             this.Controls.Add(this.cmbVehicle);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.dtpPreTripTime);
@@ -546,7 +556,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpWbDate);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.btnCargoState);
+            this.Controls.Add(this.btnMedicalExam);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancel);
@@ -562,7 +572,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnCargoState;
+        private System.Windows.Forms.Button btnMedicalExam;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCancel;
@@ -585,29 +595,29 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dtpPreTripTime;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btnOpenCustomer;
+        private System.Windows.Forms.Button btnOpenVehicle;
         private System.Windows.Forms.ComboBox cmbVehicle;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnOpenDriver;
         private System.Windows.Forms.ComboBox cmbDriver;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnOpenCustomer;
         private System.Windows.Forms.ComboBox cmbCustomer;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnOpenOrg;
         private System.Windows.Forms.ComboBox cmbOrganization;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnOpenPersonFillingOut;
         private System.Windows.Forms.ComboBox cmbPersonFillingOut;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnOpenMechanic;
         private System.Windows.Forms.ComboBox cmbMechanic;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnOpenController;
         private System.Windows.Forms.ComboBox cmbController;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnTrailer;
+        private System.Windows.Forms.Button btnWork;
         private System.Windows.Forms.DateTimePicker dtpArrivalTime;
         private System.Windows.Forms.Label label6;
     }

@@ -45,16 +45,17 @@ namespace logistic_BD
 
                 string sql;
 
-
                 if (tableName == "cargo" && parentId != 0)
                 {
-                    sql =
-                    "SELECT * FROM cargo WHERE contract_id = @id";
+                    sql = "SELECT * FROM cargo WHERE contract_id = @id";
                 }
-                else if (tableName == "cargo_state" && parentId != 0)
+                else if (tableName == "medical_exam" && parentId != 0)
                 {
-                    sql =
-                    "SELECT * FROM cargo_state WHERE cargo_id = @id";
+                    sql = "SELECT * FROM medical_exam WHERE waybill_id = @id";
+                }
+                else if (tableName == "driver_vehicle_work" && parentId != 0)
+                {
+                    sql = "SELECT * FROM driver_vehicle_work WHERE waybill_id = @id";
                 }
                 else
                 {
@@ -65,18 +66,15 @@ namespace logistic_BD
 
                 if (
                     (tableName == "cargo" ||
-                     tableName == "cargo_state")
-                    && parentId != 0
-                )
+                     tableName == "medical_exam" ||
+                     tableName == "driver_vehicle_work")
+                    && parentId != 0)
                 {
-                    adapter.SelectCommand.Parameters
-                        .AddWithValue("@id", parentId);
+                    adapter.SelectCommand.Parameters.AddWithValue("@id", parentId);
                 }
 
                 DataTable dt = new DataTable();
-
                 adapter.Fill(dt);
-
                 dataGridView1.DataSource = dt;
             }
         }
@@ -132,6 +130,15 @@ namespace logistic_BD
 
                 case "waybill":
                     return new WaybillEditView(mode, id, LoadData);
+
+                case "medical_exam":
+                    return new MedicalExamEditView(mode, id, parentId, LoadData);
+
+                case "driver_vehicle_work":
+                    return new MedicalExamEditView(mode, id, parentId, LoadData);
+
+                case "consignment_note":
+                    return new ConsignmentNoteEditView(mode, id, LoadData);
 
                 default:
                     throw new Exception("Unknown table");
