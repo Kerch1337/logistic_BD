@@ -108,6 +108,12 @@
     <Compile Include="Views\Subdoc_Views\CargoEditView.Designer.cs">
       <DependentUpon>CargoEditView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Subdoc_Views\CargoStateEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Subdoc_Views\CargoStateEditView.Designer.cs">
+      <DependentUpon>CargoStateEditView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Tables_Views\ClientEditView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -191,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Subdoc_Views\CargoEditView.resx">
       <DependentUpon>CargoEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Subdoc_Views\CargoStateEditView.resx">
+      <DependentUpon>CargoStateEditView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tables_Views\ClientEditView.resx">
       <DependentUpon>ClientEditView.cs</DependentUpon>

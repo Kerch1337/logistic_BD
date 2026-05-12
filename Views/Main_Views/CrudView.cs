@@ -45,10 +45,16 @@ namespace logistic_BD
 
                 string sql;
 
+
                 if (tableName == "cargo" && parentId != 0)
                 {
                     sql =
                     "SELECT * FROM cargo WHERE contract_id = @id";
+                }
+                else if (tableName == "cargo_state" && parentId != 0)
+                {
+                    sql =
+                    "SELECT * FROM cargo_state WHERE cargo_id = @id";
                 }
                 else
                 {
@@ -57,7 +63,11 @@ namespace logistic_BD
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sql, conn);
 
-                if (tableName == "cargo" && parentId != 0)
+                if (
+                    (tableName == "cargo" ||
+                     tableName == "cargo_state")
+                    && parentId != 0
+                )
                 {
                     adapter.SelectCommand.Parameters
                         .AddWithValue("@id", parentId);
@@ -116,6 +126,9 @@ namespace logistic_BD
 
                 case "cargo":
                     return new CargoEditView(mode, id, parentId, LoadData);
+
+                case "cargo_state":
+                    return new CargoStateEditView(mode,id,parentId,LoadData);
 
                 default:
                     throw new Exception("Unknown table");
