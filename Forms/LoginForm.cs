@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,36 +25,64 @@ namespace logistic_BD
             string login = txtLogin.Text;
             string password = txtPassword.Text;
 
-            if (login == "admin" && password == "admin")
+            using (var conn = AuthDb.GetConnection())
             {
-                Session.Role = "Admin";
-                Session.ConnectionString =
-                    "server=localhost;port=3306;database=logistics;user=admin;password=admin123;";
-                IsLoggedIn = true;
-                this.Close();
-            }
-            else if (login == "manager" && password == "manager")
-            {
-                Session.Role = "Manager";
-                Session.ConnectionString =
-                    "server=localhost;port=3306;database=logistics;user=manager;password=manager123;";
-                IsLoggedIn = true;
-                this.Close();
-            }
-            else if (login == "driver" && password == "driver")
-            {
-                Session.Role = "Driver";
-                Session.ConnectionString =
-                    "server=localhost;port=3306;database=logistics;user=driver;password=driver123;";
-                IsLoggedIn = true;
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Неверный логин или пароль");
-                return;
-            }
+                conn.Open();
 
+                string sql = @"SELECT * 
+                       FROM user 
+                       WHERE login = @login
+                       AND password_hash = SHA2(@password,256)";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@login", login);
+                cmd.Parameters.AddWithValue("@password", password);
+
+                var reader = cmd.ExecuteReader();
+
+                if (!reader.Read())
+                {
+                    MessageBox.Show("Неверный логин или пароль");
+                    return;
+                }
+
+                Session.UserId = Convert.ToInt32(reader["user_id"]);
+
+                Session.Role = reader["role"].ToString();
+
+                Session.WorkerId =
+                    reader["worker_id"] == DBNull.Value
+                    ? null
+                    : (int?)Convert.ToInt32(reader["worker_id"]);
+
+                Session.DriverId =
+                    reader["driver_id"] == DBNull.Value
+                    ? null
+                    : (int?)Convert.ToInt32(reader["driver_id"]);
+
+
+                switch (Session.Role)
+                {
+                    case "root":
+                        Session.ConnectionString =
+                            "server=localhost;database=logistics;user=db_root;password=root123;";
+                        break;
+
+                    case "manager":
+                        Session.ConnectionString =
+                            "server=localhost;database=logistics;user=db_manager;password=manager123;";
+                        break;
+
+                    case "driver":
+                        Session.ConnectionString =
+                            "server=localhost;database=logistics;user=db_driver;password=driver123;";
+                        break;
+                }
+
+                IsLoggedIn = true;
+                Close();
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)

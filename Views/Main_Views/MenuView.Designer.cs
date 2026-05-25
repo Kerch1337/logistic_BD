@@ -82,7 +82,7 @@
             // 
             // btnCN
             // 
-            this.btnCN.Location = new System.Drawing.Point(487, 271);
+            this.btnCN.Location = new System.Drawing.Point(487, 219);
             this.btnCN.Name = "btnCN";
             this.btnCN.Size = new System.Drawing.Size(102, 38);
             this.btnCN.TabIndex = 22;
@@ -92,7 +92,7 @@
             // 
             // btnClient
             // 
-            this.btnClient.Location = new System.Drawing.Point(157, 165);
+            this.btnClient.Location = new System.Drawing.Point(157, 270);
             this.btnClient.Name = "btnClient";
             this.btnClient.Size = new System.Drawing.Size(102, 31);
             this.btnClient.TabIndex = 14;
@@ -102,7 +102,7 @@
             // 
             // btnContract
             // 
-            this.btnContract.Location = new System.Drawing.Point(487, 218);
+            this.btnContract.Location = new System.Drawing.Point(487, 270);
             this.btnContract.Name = "btnContract";
             this.btnContract.Size = new System.Drawing.Size(102, 31);
             this.btnContract.TabIndex = 21;
@@ -152,7 +152,7 @@
             // 
             // btnDriver
             // 
-            this.btnDriver.Location = new System.Drawing.Point(157, 270);
+            this.btnDriver.Location = new System.Drawing.Point(157, 165);
             this.btnDriver.Name = "btnDriver";
             this.btnDriver.Size = new System.Drawing.Size(102, 31);
             this.btnDriver.TabIndex = 17;

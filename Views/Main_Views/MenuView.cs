@@ -15,8 +15,30 @@ namespace logistic_BD
         public MenuView()
         {
             InitializeComponent();
+            ApplyRoleRestrictions();
         }
 
+        private void ApplyRoleRestrictions()
+        {
+            string role = Session.Role;
+
+            if (role == "driver")
+            {
+                btnOrg.Visible = false;
+                btnClient.Visible = false;
+                btnVehicle.Visible = false;
+                btnWorker.Visible = false;
+                btnTrailer.Visible = false;
+                btnHealthWorker.Visible = false;
+                btnContract.Visible = false;
+            }
+            else if (role == "manager")
+            {
+            }
+            else if (role == "root")
+            {
+            }
+        }
 
         private void btnOrg_Click_1(object sender, EventArgs e)
         {

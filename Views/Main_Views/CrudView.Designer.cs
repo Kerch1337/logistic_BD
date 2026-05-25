@@ -105,7 +105,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "CrudView";
-            this.Size = new System.Drawing.Size(748, 452);
+            this.Size = new System.Drawing.Size(748, 457);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
