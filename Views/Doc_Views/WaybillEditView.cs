@@ -99,6 +99,9 @@ namespace logistic_BD.Views.Doc_Views
             cmbMessageType.Items.Add("Пригородное");
             cmbMessageType.Items.Add("Междугороднее");
 
+            cmbMessageType.SelectedIndex = 2;
+            cmbTransportType.SelectedIndex = 4;
+
             dtpPreTripTime.Format = DateTimePickerFormat.Time;
             dtpPreTripTime.ShowUpDown = true;
         }
@@ -199,16 +202,16 @@ namespace logistic_BD.Views.Doc_Views
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            using (var conn = Db.GetConnection())
+            bool ok = DbErrorHelper.Execute(() =>
             {
-                conn.Open();
+                using (var conn = Db.GetConnection())
+                {
+                    conn.Open();
 
-                string sql;
+                    string sql;
 
                 var arrivalRaw = dtpArrivalTime.Checked ? dtpArrivalTime.Value.ToString("o") : "NULL";
                 var departureRaw = dtpDepartureTime.Checked ? dtpDepartureTime.Value.ToString("o") : "NULL";
-
-                MessageBox.Show($"ARRIVAL: {arrivalRaw}\nDEPARTURE: {departureRaw}");
 
                 if (mode == "add")
                 {
@@ -313,11 +316,15 @@ namespace logistic_BD.Views.Doc_Views
                 if (mode == "edit")
                     cmd.Parameters.AddWithValue("@id", id);
 
-                cmd.ExecuteNonQuery();
-            }
+                    cmd.ExecuteNonQuery();
+                }
+            });
 
-            refresh?.Invoke();
-            GoBack();
+            if (ok)
+            {
+                refresh?.Invoke();
+                GoBack();
+            }
         }
 
         private void GoBack()
@@ -411,8 +418,7 @@ namespace logistic_BD.Views.Doc_Views
         {
             if (mode == "add")
             {
-                MessageBox.Show(
-                    "Сначала сохраните путевой лист");
+                MessageBox.Show("Сначала сохраните путевой лист");
 
                 return;
             }

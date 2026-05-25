@@ -179,19 +179,34 @@ namespace logistic_BD
             if (result != DialogResult.Yes)
                 return;
 
-            using (var conn = Db.GetConnection())
+            bool ok =
+            DbErrorHelper.Execute(() =>
             {
-                conn.Open();
+                using (var conn = Db.GetConnection())
+                {
+                    conn.Open();
 
-                string sql = $"DELETE FROM {tableName} WHERE {tableName}_id = @id";
+                    string sql =
+                        $"DELETE FROM {tableName} WHERE {tableName}_id = @id";
 
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@id", id);
+                    MySqlCommand cmd =
+                        new MySqlCommand(sql, conn);
 
-                cmd.ExecuteNonQuery();
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            });
+
+            if (ok)
+            {
+                LoadData();
             }
+        }
 
-            LoadData();
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

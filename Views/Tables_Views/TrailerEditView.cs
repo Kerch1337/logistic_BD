@@ -67,11 +67,13 @@ namespace logistic_BD
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            using (var conn = Db.GetConnection())
+            bool ok = DbErrorHelper.Execute(() =>
             {
-                conn.Open();
+                using (var conn = Db.GetConnection())
+                {
+                    conn.Open();
 
-                string sql;
+                    string sql;
 
                 if (mode == "add")
                 {
@@ -95,11 +97,15 @@ namespace logistic_BD
                 if (mode == "edit")
                     cmd.Parameters.AddWithValue("@id", id);
 
-                cmd.ExecuteNonQuery();
-            }
+                    cmd.ExecuteNonQuery();
+                }
+            });
 
-            refresh?.Invoke();
-            GoBack();
+            if (ok)
+            {
+                refresh?.Invoke();
+                GoBack();
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

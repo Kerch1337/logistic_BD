@@ -200,11 +200,13 @@ namespace logistic_BD.Views.Doc_Views
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            using (var conn = Db.GetConnection())
+            bool ok = DbErrorHelper.Execute(() =>
             {
-                conn.Open();
+                using (var conn = Db.GetConnection())
+                {
+                    conn.Open();
 
-                string sql;
+                    string sql;
 
                 if (mode == "add")
                 {
@@ -338,14 +340,15 @@ namespace logistic_BD.Views.Doc_Views
                     cmd.Parameters.AddWithValue("@id", id);
                 }
 
-                cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
+                }
+            });
+
+            if (ok)
+            {
+                refresh?.Invoke();
+                GoBack();
             }
-
-            refresh?.Invoke();
-
-            MainForm main = (MainForm)this.FindForm();
-
-            main.ShowView(new CrudView("contract"));
         }
 
         private void GoBack()

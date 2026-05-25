@@ -95,6 +95,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbErrorHelper.cs" />
     <Compile Include="DbReaderExtensions.cs" />
     <Compile Include="Views\Doc_Views\ConsignmentNoteEditView.cs">
       <SubType>UserControl</SubType>

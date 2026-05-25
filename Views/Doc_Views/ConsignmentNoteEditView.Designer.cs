@@ -148,6 +148,7 @@
             // 
             // cmbLoaderPerson
             // 
+            this.cmbLoaderPerson.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLoaderPerson.FormattingEnabled = true;
             this.cmbLoaderPerson.Location = new System.Drawing.Point(526, 301);
             this.cmbLoaderPerson.Name = "cmbLoaderPerson";
@@ -165,6 +166,7 @@
             // 
             // cmbLoadingPointOwner
             // 
+            this.cmbLoadingPointOwner.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLoadingPointOwner.FormattingEnabled = true;
             this.cmbLoadingPointOwner.Location = new System.Drawing.Point(526, 251);
             this.cmbLoadingPointOwner.Name = "cmbLoadingPointOwner";
@@ -182,6 +184,7 @@
             // 
             // cmbCarrier
             // 
+            this.cmbCarrier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCarrier.FormattingEnabled = true;
             this.cmbCarrier.Location = new System.Drawing.Point(526, 199);
             this.cmbCarrier.Name = "cmbCarrier";
@@ -199,6 +202,7 @@
             // 
             // cmbConsignee
             // 
+            this.cmbConsignee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbConsignee.FormattingEnabled = true;
             this.cmbConsignee.Location = new System.Drawing.Point(526, 151);
             this.cmbConsignee.Name = "cmbConsignee";
@@ -216,6 +220,7 @@
             // 
             // cmbShipper
             // 
+            this.cmbShipper.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbShipper.FormattingEnabled = true;
             this.cmbShipper.Location = new System.Drawing.Point(526, 99);
             this.cmbShipper.Name = "cmbShipper";
@@ -233,6 +238,7 @@
             // 
             // cmbWaybill
             // 
+            this.cmbWaybill.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbWaybill.FormattingEnabled = true;
             this.cmbWaybill.Location = new System.Drawing.Point(526, 49);
             this.cmbWaybill.Name = "cmbWaybill";
@@ -470,11 +476,13 @@
             // 
             // cmbCarrierRepresentative
             // 
+            this.cmbCarrierRepresentative.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCarrierRepresentative.FormattingEnabled = true;
             this.cmbCarrierRepresentative.Location = new System.Drawing.Point(267, 301);
             this.cmbCarrierRepresentative.Name = "cmbCarrierRepresentative";
             this.cmbCarrierRepresentative.Size = new System.Drawing.Size(176, 21);
             this.cmbCarrierRepresentative.TabIndex = 129;
+            this.cmbCarrierRepresentative.SelectedIndexChanged += new System.EventHandler(this.cmbCarrierRepresentative_SelectedIndexChanged);
             // 
             // label10
             // 

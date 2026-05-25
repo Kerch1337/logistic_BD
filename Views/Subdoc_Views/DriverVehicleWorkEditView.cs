@@ -38,6 +38,8 @@ namespace logistic_BD.Views.Subdoc_Views
             cmbWorkType.Items.Add("Возвращение");
             cmbWorkType.Items.Add("Прием-сдача");
 
+            cmbWorkType.SelectedIndex = 0;
+
             if (mode == "edit")
                 LoadData();
         }
@@ -134,11 +136,13 @@ namespace logistic_BD.Views.Subdoc_Views
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            using (var conn = Db.GetConnection())
+            bool ok = DbErrorHelper.Execute(() =>
             {
-                conn.Open();
+                using (var conn = Db.GetConnection())
+                {
+                    conn.Open();
 
-                string sql;
+                    string sql;
 
                 if (mode == "add")
                 {
@@ -246,12 +250,15 @@ namespace logistic_BD.Views.Subdoc_Views
                     );
                 }
 
-                cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
+                }
+            });
+
+            if (ok)
+            {
+                refresh?.Invoke();
+                GoBack();
             }
-
-            refresh?.Invoke();
-
-            GoBack();
         }
 
         private void GoBack()

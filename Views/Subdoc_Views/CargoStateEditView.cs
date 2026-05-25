@@ -33,6 +33,8 @@ namespace logistic_BD.Views.Subdoc_Views
             cmbStateType.Items.Add("Прием");
             cmbStateType.Items.Add("Выдача");
 
+            cmbStateType.SelectedIndex = 0;
+
             if (mode == "edit")
                 LoadData();
         }
@@ -86,13 +88,15 @@ namespace logistic_BD.Views.Subdoc_Views
         }
 
 
-        private void btnSave_Click(object sender,EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            using (var conn = Db.GetConnection())
+            bool ok = DbErrorHelper.Execute(() =>
             {
-                conn.Open();
+                using (var conn = Db.GetConnection())
+                {
+                    conn.Open();
 
-                string sql;
+                    string sql;
 
                 if (mode == "add")
                 {
@@ -192,12 +196,20 @@ namespace logistic_BD.Views.Subdoc_Views
                         id);
                 }
 
-                cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
+                }
+            });
+
+            if (ok)
+            {
+                refresh?.Invoke();
+                GoBack();
             }
+        }
 
-            refresh?.Invoke();
+        private void CargoStateEditView_Load(object sender, EventArgs e)
+        {
 
-            GoBack();
         }
     }
 }

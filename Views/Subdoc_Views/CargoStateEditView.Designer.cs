@@ -193,6 +193,7 @@
             // 
             // cmbStateType
             // 
+            this.cmbStateType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStateType.FormattingEnabled = true;
             this.cmbStateType.Location = new System.Drawing.Point(143, 160);
             this.cmbStateType.Name = "cmbStateType";
@@ -223,6 +224,7 @@
             this.Controls.Add(this.txtActualState);
             this.Name = "CargoStateEditView";
             this.Size = new System.Drawing.Size(745, 452);
+            this.Load += new System.EventHandler(this.CargoStateEditView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

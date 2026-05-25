@@ -193,6 +193,7 @@
             // 
             // cmbOwnership
             // 
+            this.cmbOwnership.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOwnership.FormattingEnabled = true;
             this.cmbOwnership.Location = new System.Drawing.Point(372, 267);
             this.cmbOwnership.Name = "cmbOwnership";

@@ -85,11 +85,13 @@ namespace logistic_BD.Views.Subdoc_Views
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            using (var conn = Db.GetConnection())
+            bool ok = DbErrorHelper.Execute(() =>
             {
-                conn.Open();
+                using (var conn = Db.GetConnection())
+                {
+                    conn.Open();
 
-                string checkSql = @"
+                    string checkSql = @"
             SELECT COUNT(*) 
             FROM waybill_trailer
             WHERE waybill_id = @waybill_id
@@ -115,10 +117,12 @@ namespace logistic_BD.Views.Subdoc_Views
                 cmd.Parameters.AddWithValue("@waybill_id", waybillId);
                 cmd.Parameters.AddWithValue("@trailer_id", cmbTrailer.SelectedValue);
 
-                cmd.ExecuteNonQuery();
-            }
+                    cmd.ExecuteNonQuery();
+                }
+            });
 
-            LoadTrailers();
+            if (ok)
+                LoadTrailers();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -126,36 +130,40 @@ namespace logistic_BD.Views.Subdoc_Views
             if (dgvTrailers.CurrentRow == null)
                 return;
 
-            int trailerId = Convert.ToInt32(
-                dgvTrailers.CurrentRow.Cells["trailer_id"].Value
-            );
+            int trailerId =
+                Convert.ToInt32(
+                dgvTrailers.CurrentRow
+                .Cells["trailer_id"].Value);
 
-            using (var conn = Db.GetConnection())
+            bool ok = DbErrorHelper.Execute(() =>
             {
-                conn.Open();
+                using (var conn =
+                    Db.GetConnection())
+                {
+                    conn.Open();
 
-                string sql = @"
-            DELETE FROM waybill_trailer
-            WHERE waybill_id = @waybill_id
-              AND trailer_id = @trailer_id";
+                    string sql = @"
+                        DELETE FROM waybill_trailer
+                        WHERE waybill_id=@waybill_id
+                        AND trailer_id=@trailer_id";
 
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@waybill_id", waybillId);
-                cmd.Parameters.AddWithValue("@trailer_id", trailerId);
+                    MySqlCommand cmd =
+                        new MySqlCommand(sql, conn);
 
-                cmd.ExecuteNonQuery();
-            }
+                    cmd.Parameters.AddWithValue(
+                        "@waybill_id",
+                        waybillId);
 
-            LoadTrailers();
-        }
+                    cmd.Parameters.AddWithValue(
+                        "@trailer_id",
+                        trailerId);
 
+                    cmd.ExecuteNonQuery();
+                }
+            });
 
-        private void GoBack()
-        {
-            MainForm main =
-                (MainForm)this.FindForm();
-
-            main.GoBack();
+            if (ok)
+                LoadTrailers();
         }
 
 

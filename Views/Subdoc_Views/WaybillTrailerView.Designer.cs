@@ -40,6 +40,7 @@
             // 
             // cmbTrailer
             // 
+            this.cmbTrailer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTrailer.FormattingEnabled = true;
             this.cmbTrailer.Location = new System.Drawing.Point(37, 338);
             this.cmbTrailer.Name = "cmbTrailer";

@@ -31,6 +31,8 @@ namespace logistic_BD.Views.Subdoc_Views
             cmbExamType.Items.Add("Предрейсовый");
             cmbExamType.Items.Add("Послерейсовый");
 
+            cmbExamType.SelectedIndex = 0;
+
             LoadCombos();
 
             if (mode == "edit")
@@ -106,11 +108,13 @@ namespace logistic_BD.Views.Subdoc_Views
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            using (var conn = Db.GetConnection())
+            bool ok = DbErrorHelper.Execute(() =>
             {
-                conn.Open();
+                using (var conn = Db.GetConnection())
+                {
+                    conn.Open();
 
-                string sql;
+                    string sql;
 
                 if (mode == "add")
                 {
@@ -185,11 +189,15 @@ namespace logistic_BD.Views.Subdoc_Views
                     );
                 }
 
-                cmd.ExecuteNonQuery();
-            }
+                    cmd.ExecuteNonQuery();
+                }
+            });
 
-            refresh?.Invoke();
-            GoBack();
+            if (ok)
+            {
+                refresh?.Invoke();
+                GoBack();
+            }
         }
 
         private void GoBack()

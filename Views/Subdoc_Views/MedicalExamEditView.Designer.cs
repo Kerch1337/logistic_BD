@@ -55,6 +55,7 @@
             // 
             // cmbHealthWorker
             // 
+            this.cmbHealthWorker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHealthWorker.FormattingEnabled = true;
             this.cmbHealthWorker.Location = new System.Drawing.Point(282, 295);
             this.cmbHealthWorker.Name = "cmbHealthWorker";
@@ -144,6 +145,7 @@
             // 
             // cmbExamType
             // 
+            this.cmbExamType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbExamType.FormattingEnabled = true;
             this.cmbExamType.Location = new System.Drawing.Point(282, 141);
             this.cmbExamType.Name = "cmbExamType";

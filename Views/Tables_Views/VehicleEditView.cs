@@ -29,6 +29,10 @@ namespace logistic_BD
             cmbOwnership.Items.Add("Лизинг");
             cmbOwnership.Items.Add("Безвозмездное пользование");
 
+            cmbOwnership.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            cmbOwnership.SelectedIndex = 0;
+
             this.mode = mode;
             this.id = id;
             this.refresh = refreshAction;
@@ -80,11 +84,13 @@ namespace logistic_BD
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            using (var conn = Db.GetConnection())
+            bool ok = DbErrorHelper.Execute(() =>
             {
-                conn.Open();
+                using (var conn = Db.GetConnection())
+                {
+                    conn.Open();
 
-                string sql;
+                    string sql;
 
                 if (mode == "add")
                 {
@@ -118,11 +124,15 @@ namespace logistic_BD
                 if (mode == "edit")
                     cmd.Parameters.AddWithValue("@id", id);
 
-                cmd.ExecuteNonQuery();
-            }
+                    cmd.ExecuteNonQuery();
+                }
+            });
 
-            refresh?.Invoke();
-            GoBack();
+            if (ok)
+            {
+                refresh?.Invoke();
+                GoBack();
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

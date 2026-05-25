@@ -198,6 +198,7 @@
             // 
             // cmbTransportType
             // 
+            this.cmbTransportType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTransportType.FormattingEnabled = true;
             this.cmbTransportType.Location = new System.Drawing.Point(287, 31);
             this.cmbTransportType.Name = "cmbTransportType";
@@ -215,6 +216,7 @@
             // 
             // cmbMessageType
             // 
+            this.cmbMessageType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMessageType.FormattingEnabled = true;
             this.cmbMessageType.Location = new System.Drawing.Point(287, 83);
             this.cmbMessageType.Name = "cmbMessageType";
@@ -295,6 +297,7 @@
             // 
             // cmbVehicle
             // 
+            this.cmbVehicle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVehicle.FormattingEnabled = true;
             this.cmbVehicle.Location = new System.Drawing.Point(29, 289);
             this.cmbVehicle.Name = "cmbVehicle";
@@ -322,6 +325,7 @@
             // 
             // cmbDriver
             // 
+            this.cmbDriver.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDriver.FormattingEnabled = true;
             this.cmbDriver.Location = new System.Drawing.Point(516, 31);
             this.cmbDriver.Name = "cmbDriver";
@@ -349,6 +353,7 @@
             // 
             // cmbCustomer
             // 
+            this.cmbCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCustomer.FormattingEnabled = true;
             this.cmbCustomer.Location = new System.Drawing.Point(516, 188);
             this.cmbCustomer.Name = "cmbCustomer";
@@ -377,6 +382,7 @@
             // 
             // cmbOrganization
             // 
+            this.cmbOrganization.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOrganization.FormattingEnabled = true;
             this.cmbOrganization.Location = new System.Drawing.Point(516, 238);
             this.cmbOrganization.Name = "cmbOrganization";
@@ -404,6 +410,7 @@
             // 
             // cmbPersonFillingOut
             // 
+            this.cmbPersonFillingOut.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPersonFillingOut.FormattingEnabled = true;
             this.cmbPersonFillingOut.Location = new System.Drawing.Point(516, 83);
             this.cmbPersonFillingOut.Name = "cmbPersonFillingOut";
@@ -431,6 +438,7 @@
             // 
             // cmbMechanic
             // 
+            this.cmbMechanic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMechanic.FormattingEnabled = true;
             this.cmbMechanic.Location = new System.Drawing.Point(516, 134);
             this.cmbMechanic.Name = "cmbMechanic";
@@ -458,6 +466,7 @@
             // 
             // cmbController
             // 
+            this.cmbController.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbController.FormattingEnabled = true;
             this.cmbController.Location = new System.Drawing.Point(516, 289);
             this.cmbController.Name = "cmbController";

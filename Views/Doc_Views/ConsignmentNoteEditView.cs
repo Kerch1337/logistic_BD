@@ -47,11 +47,11 @@ namespace logistic_BD.Views.Doc_Views
 
                 cmbConsignee.DataSource = clients.Copy();
                 cmbConsignee.ValueMember = "client_id";
-                cmbConsignee.DisplayMember = "org_name";
+                cmbConsignee.DisplayMember = "client_id";
 
                 cmbShipper.DataSource = clients.Copy();
                 cmbShipper.ValueMember = "client_id";
-                cmbShipper.DisplayMember = "org_name";
+                cmbShipper.DisplayMember = "client_id";
 
 
                 DataTable orgs = new DataTable();
@@ -62,11 +62,11 @@ namespace logistic_BD.Views.Doc_Views
 
                 cmbCarrier.DataSource = orgs.Copy();
                 cmbCarrier.ValueMember = "organization_id";
-                cmbCarrier.DisplayMember = "name";
+                cmbCarrier.DisplayMember = "organization_id";
 
                 cmbLoadingPointOwner.DataSource = orgs;
                 cmbLoadingPointOwner.ValueMember = "organization_id";
-                cmbLoadingPointOwner.DisplayMember = "name";
+                cmbLoadingPointOwner.DisplayMember = "organization_id";
 
                 DataTable workers = new DataTable();
                 new MySqlDataAdapter(
@@ -76,11 +76,11 @@ namespace logistic_BD.Views.Doc_Views
 
                 cmbLoaderPerson.DataSource = workers.Copy();
                 cmbLoaderPerson.ValueMember = "worker_id";
-                cmbLoaderPerson.DisplayMember = "full_name";
+                cmbLoaderPerson.DisplayMember = "worker_id";
 
                 cmbCarrierRepresentative.DataSource = workers;
                 cmbCarrierRepresentative.ValueMember = "worker_id";
-                cmbCarrierRepresentative.DisplayMember = "full_name";
+                cmbCarrierRepresentative.DisplayMember = "worker_id";
 
                 DataTable waybills = new DataTable();
                 new MySqlDataAdapter(
@@ -90,7 +90,7 @@ namespace logistic_BD.Views.Doc_Views
 
                 cmbWaybill.DataSource = waybills;
                 cmbWaybill.ValueMember = "waybill_id";
-                cmbWaybill.DisplayMember = "wb_number";
+                cmbWaybill.DisplayMember = "waybill_id";
             }
         }
 
@@ -161,18 +161,18 @@ namespace logistic_BD.Views.Doc_Views
 
             MainForm main = (MainForm)this.FindForm();
 
-            main.ShowView(
-                new CargoToConsignmentView(id, LoadData)
-            );
+            main.NavigateTo(new CargoToConsignmentView(id, LoadData));
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            using (var conn = Db.GetConnection())
+            bool ok = DbErrorHelper.Execute(() =>
             {
-                conn.Open();
+                using (var conn = Db.GetConnection())
+                {
+                    conn.Open();
 
-                string sql;
+                    string sql;
 
                 if (mode == "add")
                 {
@@ -275,11 +275,15 @@ namespace logistic_BD.Views.Doc_Views
                 if (mode == "edit")
                     cmd.Parameters.AddWithValue("@id", id);
 
-                cmd.ExecuteNonQuery();
-            }
+                    cmd.ExecuteNonQuery();
+                }
+            });
 
-            refresh?.Invoke();
-            GoBack();
+            if (ok)
+            {
+                refresh?.Invoke();
+                GoBack();
+            }
         }
 
         private void GoBack()
@@ -291,7 +295,7 @@ namespace logistic_BD.Views.Doc_Views
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            GoBack();
         }
 
         private void open(string str)
@@ -336,6 +340,11 @@ namespace logistic_BD.Views.Doc_Views
         private void btnOpenLoaderPerson_Click(object sender, EventArgs e)
         {
             open("worker");
+        }
+
+        private void cmbCarrierRepresentative_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

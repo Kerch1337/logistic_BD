@@ -53,6 +53,7 @@
             // 
             // cmbWorkType
             // 
+            this.cmbWorkType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbWorkType.FormattingEnabled = true;
             this.cmbWorkType.Location = new System.Drawing.Point(151, 146);
             this.cmbWorkType.Name = "cmbWorkType";
@@ -80,6 +81,7 @@
             // 
             // cmbAuthorizedPerson
             // 
+            this.cmbAuthorizedPerson.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAuthorizedPerson.FormattingEnabled = true;
             this.cmbAuthorizedPerson.Location = new System.Drawing.Point(259, 307);
             this.cmbAuthorizedPerson.Name = "cmbAuthorizedPerson";

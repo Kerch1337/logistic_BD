@@ -244,6 +244,7 @@
             // 
             // cmbCustomer
             // 
+            this.cmbCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCustomer.FormattingEnabled = true;
             this.cmbCustomer.Location = new System.Drawing.Point(283, 240);
             this.cmbCustomer.Name = "cmbCustomer";
@@ -261,6 +262,7 @@
             // 
             // cmbConsignee
             // 
+            this.cmbConsignee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbConsignee.FormattingEnabled = true;
             this.cmbConsignee.Location = new System.Drawing.Point(518, 30);
             this.cmbConsignee.Name = "cmbConsignee";
@@ -278,6 +280,7 @@
             // 
             // cmbShipper
             // 
+            this.cmbShipper.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbShipper.FormattingEnabled = true;
             this.cmbShipper.Location = new System.Drawing.Point(518, 83);
             this.cmbShipper.Name = "cmbShipper";
@@ -295,6 +298,7 @@
             // 
             // cmbOrganization
             // 
+            this.cmbOrganization.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOrganization.FormattingEnabled = true;
             this.cmbOrganization.Location = new System.Drawing.Point(518, 134);
             this.cmbOrganization.Name = "cmbOrganization";
@@ -312,6 +316,7 @@
             // 
             // cmbPerformer
             // 
+            this.cmbPerformer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPerformer.FormattingEnabled = true;
             this.cmbPerformer.Location = new System.Drawing.Point(518, 190);
             this.cmbPerformer.Name = "cmbPerformer";
@@ -329,6 +334,7 @@
             // 
             // cmbLoadingContact
             // 
+            this.cmbLoadingContact.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLoadingContact.FormattingEnabled = true;
             this.cmbLoadingContact.Location = new System.Drawing.Point(518, 242);
             this.cmbLoadingContact.Name = "cmbLoadingContact";
@@ -348,6 +354,7 @@
             // 
             // cmbUnloadingContact
             // 
+            this.cmbUnloadingContact.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUnloadingContact.FormattingEnabled = true;
             this.cmbUnloadingContact.Location = new System.Drawing.Point(518, 302);
             this.cmbUnloadingContact.Name = "cmbUnloadingContact";
