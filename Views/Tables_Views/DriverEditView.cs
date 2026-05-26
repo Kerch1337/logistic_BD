@@ -135,5 +135,10 @@ namespace logistic_BD
         {
 
         }
+
+        private void DriverEditView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -156,7 +156,7 @@
             this.btnDriver.Name = "btnDriver";
             this.btnDriver.Size = new System.Drawing.Size(102, 31);
             this.btnDriver.TabIndex = 17;
-            this.btnDriver.Text = "Водители";
+            this.btnDriver.Text = "Водитель";
             this.btnDriver.UseVisualStyleBackColor = true;
             this.btnDriver.Click += new System.EventHandler(this.btnDriver_Click);
             // 

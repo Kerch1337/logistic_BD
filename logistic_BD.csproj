@@ -116,6 +116,120 @@
     <Compile Include="Views\Doc_Views\WaybillEditView.Designer.cs">
       <DependentUpon>WaybillEditView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Driver_Views\DriverCargoListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverCargoListView.Designer.cs">
+      <DependentUpon>DriverCargoListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverCargoStateListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverCargoStateListView.Designer.cs">
+      <DependentUpon>DriverCargoStateListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverCargoStateView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverCargoStateView.Designer.cs">
+      <DependentUpon>DriverCargoStateView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverCargoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverCargoView.Designer.cs">
+      <DependentUpon>DriverCargoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverClientView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverClientView.Designer.cs">
+      <DependentUpon>DriverClientView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverConsignmentNoteListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverConsignmentNoteListView.Designer.cs">
+      <DependentUpon>DriverConsignmentNoteListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverConsignmentNoteView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverConsignmentNoteView.Designer.cs">
+      <DependentUpon>DriverConsignmentNoteView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverMedicalExamListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverMedicalExamListView.Designer.cs">
+      <DependentUpon>DriverMedicalExamListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverMedicalExamView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverMedicalExamView.Designer.cs">
+      <DependentUpon>DriverMedicalExamView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverOrganizationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverOrganizationView.Designer.cs">
+      <DependentUpon>DriverOrganizationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverProfileView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverProfileView.Designer.cs">
+      <DependentUpon>DriverProfileView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverTrailerListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverTrailerListView.Designer.cs">
+      <DependentUpon>DriverTrailerListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverTrailerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverTrailerView.Designer.cs">
+      <DependentUpon>DriverTrailerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverVehicleView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverVehicleView.Designer.cs">
+      <DependentUpon>DriverVehicleView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverWaybillListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverWaybillListView.Designer.cs">
+      <DependentUpon>DriverWaybillListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverWaybillView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverWaybillView.Designer.cs">
+      <DependentUpon>DriverWaybillView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverWorkerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverWorkerView.Designer.cs">
+      <DependentUpon>DriverWorkerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverWorkListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverWorkListView.Designer.cs">
+      <DependentUpon>DriverWorkListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverWorkView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Driver_Views\DriverWorkView.Designer.cs">
+      <DependentUpon>DriverWorkView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Subdoc_Views\CargoEditView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -236,6 +350,63 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Doc_Views\WaybillEditView.resx">
       <DependentUpon>WaybillEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverCargoListView.resx">
+      <DependentUpon>DriverCargoListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverCargoStateListView.resx">
+      <DependentUpon>DriverCargoStateListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverCargoStateView.resx">
+      <DependentUpon>DriverCargoStateView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverCargoView.resx">
+      <DependentUpon>DriverCargoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverClientView.resx">
+      <DependentUpon>DriverClientView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverConsignmentNoteListView.resx">
+      <DependentUpon>DriverConsignmentNoteListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverConsignmentNoteView.resx">
+      <DependentUpon>DriverConsignmentNoteView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverMedicalExamListView.resx">
+      <DependentUpon>DriverMedicalExamListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverMedicalExamView.resx">
+      <DependentUpon>DriverMedicalExamView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverOrganizationView.resx">
+      <DependentUpon>DriverOrganizationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverProfileView.resx">
+      <DependentUpon>DriverProfileView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverTrailerListView.resx">
+      <DependentUpon>DriverTrailerListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverTrailerView.resx">
+      <DependentUpon>DriverTrailerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverVehicleView.resx">
+      <DependentUpon>DriverVehicleView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverWaybillListView.resx">
+      <DependentUpon>DriverWaybillListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverWaybillView.resx">
+      <DependentUpon>DriverWaybillView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverWorkerView.resx">
+      <DependentUpon>DriverWorkerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverWorkListView.resx">
+      <DependentUpon>DriverWorkListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Driver_Views\DriverWorkView.resx">
+      <DependentUpon>DriverWorkView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Subdoc_Views\CargoEditView.resx">
       <DependentUpon>CargoEditView.cs</DependentUpon>

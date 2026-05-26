@@ -1,4 +1,5 @@
-﻿using System;
+﻿using logistic_BD.Views.Driver_Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using logistic_BD.Views.Driver_Views;
 
 namespace logistic_BD
 {
@@ -77,9 +79,21 @@ namespace logistic_BD
 
         private void btnDriver_Click(object sender, EventArgs e)
         {
-            MainForm main = (MainForm)this.FindForm();
+            MainForm main =
+                (MainForm)this.FindForm();
 
-            main.NavigateTo(new CrudView("driver"));
+            if (Session.Role == "driver")
+            {
+                main.NavigateTo(
+                    new DriverProfileView()
+                );
+            }
+            else
+            {
+                main.NavigateTo(
+                    new CrudView("driver")
+                );
+            }
         }
 
         private void btnHealthWorker_Click(object sender, EventArgs e)
@@ -91,9 +105,21 @@ namespace logistic_BD
 
         private void btnWaybill_Click(object sender, EventArgs e)
         {
-            MainForm main = (MainForm)this.FindForm();
+            MainForm main =
+                (MainForm)this.FindForm();
 
-            main.NavigateTo(new CrudView("waybill"));
+            if (Session.Role == "driver")
+            {
+                main.NavigateTo(
+                    new DriverWaybillListView()
+                );
+            }
+            else
+            {
+                main.NavigateTo(
+                    new CrudView("waybill")
+                );
+            }
         }
 
         private void btnContract_Click(object sender, EventArgs e)
@@ -107,7 +133,18 @@ namespace logistic_BD
         {
             MainForm main = (MainForm)this.FindForm();
 
-            main.NavigateTo(new CrudView("consignment_note"));
+            if (Session.Role == "driver")
+            {
+                main.NavigateTo(
+                    new DriverConsignmentNoteListView()
+                );
+            }
+            else
+            {
+                main.NavigateTo(
+                    new CrudView("consignment_note")
+                );
+            }
         }
     }
 

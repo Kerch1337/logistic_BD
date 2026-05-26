@@ -135,7 +135,7 @@ namespace logistic_BD
                     return new MedicalExamEditView(mode, id, parentId, LoadData);
 
                 case "driver_vehicle_work":
-                    return new MedicalExamEditView(mode, id, parentId, LoadData);
+                    return new DriverVehicleWorkEditView(mode, id, parentId, LoadData);
 
                 case "consignment_note":
                     return new ConsignmentNoteEditView(mode, id, LoadData);
