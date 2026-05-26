@@ -41,6 +41,7 @@
             this.btnWorker = new System.Windows.Forms.Button();
             this.btnDriver = new System.Windows.Forms.Button();
             this.btnHealthWorker = new System.Windows.Forms.Button();
+            this.btnUserSetting = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -170,10 +171,21 @@
             this.btnHealthWorker.UseVisualStyleBackColor = true;
             this.btnHealthWorker.Click += new System.EventHandler(this.btnHealthWorker_Click);
             // 
+            // btnUserSetting
+            // 
+            this.btnUserSetting.Location = new System.Drawing.Point(612, 387);
+            this.btnUserSetting.Name = "btnUserSetting";
+            this.btnUserSetting.Size = new System.Drawing.Size(102, 38);
+            this.btnUserSetting.TabIndex = 26;
+            this.btnUserSetting.Text = "Настройка пользователей";
+            this.btnUserSetting.UseVisualStyleBackColor = true;
+            this.btnUserSetting.Click += new System.EventHandler(this.btnUserSetting_Click);
+            // 
             // MenuView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnUserSetting);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -209,5 +221,6 @@
         private System.Windows.Forms.Button btnWorker;
         private System.Windows.Forms.Button btnDriver;
         private System.Windows.Forms.Button btnHealthWorker;
+        private System.Windows.Forms.Button btnUserSetting;
     }
 }

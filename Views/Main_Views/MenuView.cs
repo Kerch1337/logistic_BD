@@ -33,9 +33,12 @@ namespace logistic_BD
                 btnTrailer.Visible = false;
                 btnHealthWorker.Visible = false;
                 btnContract.Visible = false;
+
+                btnUserSetting.Visible = false;
             }
             else if (role == "manager")
             {
+                btnUserSetting.Visible = false;
             }
             else if (role == "root")
             {
@@ -145,6 +148,12 @@ namespace logistic_BD
                     new CrudView("consignment_note")
                 );
             }
+        }
+
+        private void btnUserSetting_Click(object sender, EventArgs e)
+        {
+            MainForm main = (MainForm)this.FindForm();
+            main.NavigateTo(new CrudView("user"));
         }
     }
 

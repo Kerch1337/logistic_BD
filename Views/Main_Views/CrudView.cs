@@ -1,4 +1,5 @@
-﻿using logistic_BD.Views.Doc_Views;
+﻿using logistic_BD.Views.Admin_Views;
+using logistic_BD.Views.Doc_Views;
 using logistic_BD.Views.Subdoc_Views;
 using MySql.Data.MySqlClient;
 using System;
@@ -139,6 +140,9 @@ namespace logistic_BD
 
                 case "consignment_note":
                     return new ConsignmentNoteEditView(mode, id, LoadData);
+
+                case "user":
+                    return new UserEditView(mode, id, LoadData);
 
                 default:
                     throw new Exception("Unknown table");

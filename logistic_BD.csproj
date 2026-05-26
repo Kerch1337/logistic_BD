@@ -330,6 +330,12 @@
     <Compile Include="Views\Tables_Views\TrailerEditView.Designer.cs">
       <DependentUpon>TrailerEditView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Tables_Views\UserEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Tables_Views\UserEditView.Designer.cs">
+      <DependentUpon>UserEditView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Tables_Views\VehicleEditView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -464,6 +470,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Tables_Views\TrailerEditView.resx">
       <DependentUpon>TrailerEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tables_Views\UserEditView.resx">
+      <DependentUpon>UserEditView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tables_Views\VehicleEditView.resx">
       <DependentUpon>VehicleEditView.cs</DependentUpon>
