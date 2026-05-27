@@ -19,6 +19,9 @@ namespace logistic_BD
         {
             InitializeComponent();
 
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+
             ShowView(new MenuView());
         }
 

@@ -323,12 +323,6 @@
     <Compile Include="Views\Tables_Views\DriverEditView.Designer.cs">
       <DependentUpon>DriverEditView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Tables_Views\HealthWorkerEditView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -487,9 +481,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tables_Views\DriverEditView.resx">
       <DependentUpon>DriverEditView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tables_Views\HealthWorkerEditView.resx">
       <DependentUpon>HealthWorkerEditView.cs</DependentUpon>
