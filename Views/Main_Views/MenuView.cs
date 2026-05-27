@@ -40,6 +40,8 @@ namespace logistic_BD
                 btnUserSetting.Visible = false;
 
                 btnContractReport.Visible = false;
+                btnVehicleReport.Visible = false;
+                btnClientReport.Visible = false;
             }
             else if (role == "manager")
             {
