@@ -117,12 +117,24 @@
     <Compile Include="AuthDb.cs" />
     <Compile Include="DbErrorHelper.cs" />
     <Compile Include="DbReaderExtensions.cs" />
+    <Compile Include="Reports\ClientActivityReportView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\ClientActivityReportView.Designer.cs">
+      <DependentUpon>ClientActivityReportView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ContractReport.cs" />
     <Compile Include="Reports\ContractReportListView.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Reports\ContractReportListView.Designer.cs">
       <DependentUpon>ContractReportListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VehicleLoadReportView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\VehicleLoadReportView.Designer.cs">
+      <DependentUpon>VehicleLoadReportView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Doc_Views\ConsignmentNoteEditView.cs">
       <SubType>UserControl</SubType>
@@ -374,8 +386,14 @@
     <Compile Include="Views\Tables_Views\WorkerEditView.Designer.cs">
       <DependentUpon>WorkerEditView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reports\ClientActivityReportView.resx">
+      <DependentUpon>ClientActivityReportView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ContractReportListView.resx">
       <DependentUpon>ContractReportListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VehicleLoadReportView.resx">
+      <DependentUpon>VehicleLoadReportView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Doc_Views\ConsignmentNoteEditView.resx">
       <DependentUpon>ConsignmentNoteEditView.cs</DependentUpon>

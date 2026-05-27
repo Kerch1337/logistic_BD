@@ -1,6 +1,8 @@
-﻿using logistic_BD.Views.Driver_Views;
+﻿using logistic_BD.Reports;
+using logistic_BD.Views.Driver_Views;
 using logistic_BD.Views.Driver_Views;
 using logistic_BD.Views.Report_Views;
+using logistic_BD.Views.ReportViews;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -163,6 +165,18 @@ namespace logistic_BD
         {
             MainForm main = (MainForm)this.FindForm();
             main.NavigateTo(new ContractReportListView());
+        }
+
+        private void btnVehicleReport_Click(object sender, EventArgs e)
+        {
+            MainForm main = (MainForm)this.FindForm();
+            main.NavigateTo(new VehicleLoadReportView());
+        }
+
+        private void btnClientReport_Click(object sender, EventArgs e)
+        {
+            MainForm main = (MainForm)this.FindForm();
+            main.NavigateTo(new ClientActivityReportView());
         }
     }
 

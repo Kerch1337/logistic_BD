@@ -43,6 +43,8 @@
             this.btnHealthWorker = new System.Windows.Forms.Button();
             this.btnUserSetting = new System.Windows.Forms.Button();
             this.btnContractReport = new System.Windows.Forms.Button();
+            this.btnVehicleReport = new System.Windows.Forms.Button();
+            this.btnClientReport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -192,10 +194,32 @@
             this.btnContractReport.UseVisualStyleBackColor = true;
             this.btnContractReport.Click += new System.EventHandler(this.btnContractReport_Click);
             // 
+            // btnVehicleReport
+            // 
+            this.btnVehicleReport.Location = new System.Drawing.Point(157, 22);
+            this.btnVehicleReport.Name = "btnVehicleReport";
+            this.btnVehicleReport.Size = new System.Drawing.Size(102, 38);
+            this.btnVehicleReport.TabIndex = 28;
+            this.btnVehicleReport.Text = "Загруженность ТС";
+            this.btnVehicleReport.UseVisualStyleBackColor = true;
+            this.btnVehicleReport.Click += new System.EventHandler(this.btnVehicleReport_Click);
+            // 
+            // btnClientReport
+            // 
+            this.btnClientReport.Location = new System.Drawing.Point(280, 22);
+            this.btnClientReport.Name = "btnClientReport";
+            this.btnClientReport.Size = new System.Drawing.Size(102, 38);
+            this.btnClientReport.TabIndex = 29;
+            this.btnClientReport.Text = "Активность клиентов";
+            this.btnClientReport.UseVisualStyleBackColor = true;
+            this.btnClientReport.Click += new System.EventHandler(this.btnClientReport_Click);
+            // 
             // MenuView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnClientReport);
+            this.Controls.Add(this.btnVehicleReport);
             this.Controls.Add(this.btnContractReport);
             this.Controls.Add(this.btnUserSetting);
             this.Controls.Add(this.label3);
@@ -235,5 +259,7 @@
         private System.Windows.Forms.Button btnHealthWorker;
         private System.Windows.Forms.Button btnUserSetting;
         private System.Windows.Forms.Button btnContractReport;
+        private System.Windows.Forms.Button btnVehicleReport;
+        private System.Windows.Forms.Button btnClientReport;
     }
 }
