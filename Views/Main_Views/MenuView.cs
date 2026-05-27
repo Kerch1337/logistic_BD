@@ -1,4 +1,6 @@
 ﻿using logistic_BD.Views.Driver_Views;
+using logistic_BD.Views.Driver_Views;
+using logistic_BD.Views.Report_Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using logistic_BD.Views.Driver_Views;
 
 namespace logistic_BD
 {
@@ -35,6 +36,8 @@ namespace logistic_BD
                 btnContract.Visible = false;
 
                 btnUserSetting.Visible = false;
+
+                btnContractReport.Visible = false;
             }
             else if (role == "manager")
             {
@@ -154,6 +157,12 @@ namespace logistic_BD
         {
             MainForm main = (MainForm)this.FindForm();
             main.NavigateTo(new CrudView("user"));
+        }
+
+        private void btnContractReport_Click(object sender, EventArgs e)
+        {
+            MainForm main = (MainForm)this.FindForm();
+            main.NavigateTo(new ContractReportListView());
         }
     }
 

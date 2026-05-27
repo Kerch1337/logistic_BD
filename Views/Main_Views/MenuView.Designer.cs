@@ -42,6 +42,7 @@
             this.btnDriver = new System.Windows.Forms.Button();
             this.btnHealthWorker = new System.Windows.Forms.Button();
             this.btnUserSetting = new System.Windows.Forms.Button();
+            this.btnContractReport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -181,10 +182,21 @@
             this.btnUserSetting.UseVisualStyleBackColor = true;
             this.btnUserSetting.Click += new System.EventHandler(this.btnUserSetting_Click);
             // 
+            // btnContractReport
+            // 
+            this.btnContractReport.Location = new System.Drawing.Point(35, 22);
+            this.btnContractReport.Name = "btnContractReport";
+            this.btnContractReport.Size = new System.Drawing.Size(102, 38);
+            this.btnContractReport.TabIndex = 27;
+            this.btnContractReport.Text = "Отчет Договор-заявка";
+            this.btnContractReport.UseVisualStyleBackColor = true;
+            this.btnContractReport.Click += new System.EventHandler(this.btnContractReport_Click);
+            // 
             // MenuView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnContractReport);
             this.Controls.Add(this.btnUserSetting);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -222,5 +234,6 @@
         private System.Windows.Forms.Button btnDriver;
         private System.Windows.Forms.Button btnHealthWorker;
         private System.Windows.Forms.Button btnUserSetting;
+        private System.Windows.Forms.Button btnContractReport;
     }
 }

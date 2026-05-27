@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Xceed.Document.NET;
 
 namespace logistic_BD
 {
@@ -16,6 +17,8 @@ namespace logistic_BD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            Licenser.LicenseKey = "WDN52-ARNFA-844M5-S4FA";
 
             // ошибки потока интерфейса
             Application.ThreadException +=
