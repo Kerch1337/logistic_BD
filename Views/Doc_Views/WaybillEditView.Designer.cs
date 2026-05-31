@@ -309,9 +309,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(26, 273);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(104, 13);
+            this.label12.Size = new System.Drawing.Size(21, 13);
             this.label12.TabIndex = 185;
-            this.label12.Text = "Идентификатор ТС";
+            this.label12.Text = "ТС";
             // 
             // btnOpenDriver
             // 
@@ -337,9 +337,9 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(513, 15);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(137, 13);
+            this.label13.Size = new System.Drawing.Size(55, 13);
             this.label13.TabIndex = 188;
-            this.label13.Text = "Идентификатор водителя";
+            this.label13.Text = "Водитель";
             // 
             // btnOpenCustomer
             // 
@@ -366,9 +366,9 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(513, 172);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(143, 13);
+            this.label14.Size = new System.Drawing.Size(55, 13);
             this.label14.TabIndex = 191;
-            this.label14.Text = "Идентификатор заказчика";
+            this.label14.Text = "Заказчик";
             // 
             // btnOpenOrg
             // 
@@ -394,9 +394,9 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(513, 222);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(168, 13);
+            this.label15.Size = new System.Drawing.Size(132, 13);
             this.label15.TabIndex = 194;
-            this.label15.Text = "Идентификатор орг., запол. ПЛ";
+            this.label15.Text = "Организация, запол. ПЛ";
             // 
             // btnOpenPersonFillingOut
             // 
@@ -422,9 +422,9 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(513, 67);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(173, 13);
+            this.label16.Size = new System.Drawing.Size(92, 13);
             this.label16.TabIndex = 197;
-            this.label16.Text = "Идентификатор лица оформ. ПЛ";
+            this.label16.Text = "Лицо оформ. ПЛ";
             // 
             // btnOpenMechanic
             // 
@@ -450,9 +450,9 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(513, 118);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(139, 13);
+            this.label17.Size = new System.Drawing.Size(51, 13);
             this.label17.TabIndex = 200;
-            this.label17.Text = "Идентификатор механика";
+            this.label17.Text = "Механик";
             // 
             // btnOpenController
             // 
@@ -478,9 +478,9 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(513, 273);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(227, 13);
+            this.label18.Size = new System.Drawing.Size(139, 13);
             this.label18.TabIndex = 203;
-            this.label18.Text = "Идентификатор контролера тех. состояния";
+            this.label18.Text = "Контролер тех. состояния";
             // 
             // btnTrailer
             // 

@@ -134,19 +134,32 @@ namespace logistic_BD.Views.Doc_Views
             {
                 conn.Open();
 
-                string sql = "SELECT client_id FROM client";
+                string sql = @"
+                    SELECT
+                        client_id,
+                        org_name,
+                        last_name
+                    FROM client";
 
                 MySqlDataAdapter adapter =
                     new MySqlDataAdapter(sql, conn);
 
                 DataTable dt = new DataTable();
-
                 adapter.Fill(dt);
 
+                dt.Columns.Add(
+                    "display_text",
+                    typeof(string));
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    row["display_text"] =
+                        $"{row["org_name"]} | " +
+                        $"{row["last_name"]} ";
+                }
+
                 combo.DataSource = dt;
-
-                combo.DisplayMember = "client_id";
-
+                combo.DisplayMember = "display_text";
                 combo.ValueMember = "client_id";
             }
         }
@@ -157,7 +170,7 @@ namespace logistic_BD.Views.Doc_Views
             {
                 conn.Open();
 
-                string sql = "SELECT organization_id FROM organization";
+                string sql = "SELECT organization_id, name FROM organization";
 
                 MySqlDataAdapter adapter =
                     new MySqlDataAdapter(sql, conn);
@@ -168,7 +181,7 @@ namespace logistic_BD.Views.Doc_Views
 
                 combo.DataSource = dt;
 
-                combo.DisplayMember = "organization_id";
+                combo.DisplayMember = "name";
 
                 combo.ValueMember = "organization_id";
             }
@@ -180,7 +193,7 @@ namespace logistic_BD.Views.Doc_Views
             {
                 conn.Open();
 
-                string sql = "SELECT worker_id FROM worker";
+                string sql = "SELECT worker_id, full_name FROM worker";
 
                 MySqlDataAdapter adapter =
                     new MySqlDataAdapter(sql, conn);
@@ -191,7 +204,7 @@ namespace logistic_BD.Views.Doc_Views
 
                 combo.DataSource = dt;
 
-                combo.DisplayMember = "worker_id";
+                combo.DisplayMember = "full_name";
 
                 combo.ValueMember = "worker_id";
             }

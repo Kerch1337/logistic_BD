@@ -41,17 +41,25 @@ namespace logistic_BD.Views.Doc_Views
 
                 DataTable clients = new DataTable();
                 new MySqlDataAdapter(
-                    "SELECT client_id, org_name FROM client",
+                    "SELECT client_id, org_name, last_name FROM client",
                     conn
                 ).Fill(clients);
 
+
+                clients.Columns.Add("display_client", typeof(string));
+
+                foreach (DataRow row in clients.Rows)
+                {
+                    row["display_client"] = $"{row["org_name"]} | " + $"{row["last_name"]} ";
+                }
+
                 cmbConsignee.DataSource = clients.Copy();
                 cmbConsignee.ValueMember = "client_id";
-                cmbConsignee.DisplayMember = "client_id";
+                cmbConsignee.DisplayMember = "display_client";
 
                 cmbShipper.DataSource = clients.Copy();
                 cmbShipper.ValueMember = "client_id";
-                cmbShipper.DisplayMember = "client_id";
+                cmbShipper.DisplayMember = "display_client";
 
 
                 DataTable orgs = new DataTable();
@@ -62,11 +70,11 @@ namespace logistic_BD.Views.Doc_Views
 
                 cmbCarrier.DataSource = orgs.Copy();
                 cmbCarrier.ValueMember = "organization_id";
-                cmbCarrier.DisplayMember = "organization_id";
+                cmbCarrier.DisplayMember = "name";
 
                 cmbLoadingPointOwner.DataSource = orgs;
                 cmbLoadingPointOwner.ValueMember = "organization_id";
-                cmbLoadingPointOwner.DisplayMember = "organization_id";
+                cmbLoadingPointOwner.DisplayMember = "name";
 
                 DataTable workers = new DataTable();
                 new MySqlDataAdapter(
@@ -76,11 +84,11 @@ namespace logistic_BD.Views.Doc_Views
 
                 cmbLoaderPerson.DataSource = workers.Copy();
                 cmbLoaderPerson.ValueMember = "worker_id";
-                cmbLoaderPerson.DisplayMember = "worker_id";
+                cmbLoaderPerson.DisplayMember = "full_name";
 
                 cmbCarrierRepresentative.DataSource = workers;
                 cmbCarrierRepresentative.ValueMember = "worker_id";
-                cmbCarrierRepresentative.DisplayMember = "worker_id";
+                cmbCarrierRepresentative.DisplayMember = "full_name";
 
                 DataTable waybills = new DataTable();
                 new MySqlDataAdapter(
@@ -90,7 +98,7 @@ namespace logistic_BD.Views.Doc_Views
 
                 cmbWaybill.DataSource = waybills;
                 cmbWaybill.ValueMember = "waybill_id";
-                cmbWaybill.DisplayMember = "waybill_id";
+                cmbWaybill.DisplayMember = "wb_number";
             }
         }
 

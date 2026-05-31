@@ -87,6 +87,19 @@ namespace logistic_BD.Reports
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 dataGridView1.DataSource = dt;
+
+                dataGridView1.Columns["inn"].HeaderText = "ИНН";
+                dataGridView1.Columns["org_name"].HeaderText = "Наименование организации";
+                dataGridView1.Columns["last_name"].HeaderText = "Фамилия";
+                dataGridView1.Columns["first_name"].HeaderText = "Имя";
+                dataGridView1.Columns["patronymic"].HeaderText = "Отчество";
+                dataGridView1.Columns["phone"].HeaderText = "Телефон";
+
+                dataGridView1.Columns["contracts_count"].HeaderText = "Количество договоров-завок";
+                dataGridView1.Columns["total_weight"].HeaderText = "Общий вес";
+                dataGridView1.Columns["total_volume"].HeaderText = "Общий объем";
+                dataGridView1.Columns["total_contract_sum"].HeaderText = "Общая сумма";
+                dataGridView1.Columns["avg_contract_sum"].HeaderText = "Средняя сумма договора-заявки";
             }
         }
 

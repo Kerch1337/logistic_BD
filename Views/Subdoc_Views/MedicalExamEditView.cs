@@ -47,7 +47,7 @@ namespace logistic_BD.Views.Subdoc_Views
 
                 MySqlDataAdapter da =
                     new MySqlDataAdapter(
-                        "SELECT health_worker_id FROM health_worker",
+                        "SELECT health_worker_id, full_name FROM health_worker",
                         conn);
 
                 DataTable dt = new DataTable();
@@ -60,7 +60,7 @@ namespace logistic_BD.Views.Subdoc_Views
                     "health_worker_id";
 
                 cmbHealthWorker.DisplayMember =
-                    "health_worker_id";
+                    "full_name";
             }
         }
 

@@ -41,7 +41,7 @@ namespace logistic_BD.Views.Subdoc_Views
                 da.Fill(dt);
 
                 cmbTrailer.DataSource = dt;
-                cmbTrailer.DisplayMember = "trailer_id";
+                cmbTrailer.DisplayMember = "reg_number";
                 cmbTrailer.ValueMember = "trailer_id";
             }
         }
@@ -75,6 +75,11 @@ namespace logistic_BD.Views.Subdoc_Views
                 da.Fill(dt);
 
                 dgvTrailers.DataSource = dt;
+
+                dgvTrailers.Columns["trailer_id"].HeaderText = "Идентификатор прицепа";
+                dgvTrailers.Columns["reg_number"].HeaderText = "Рег. номер";
+                dgvTrailers.Columns["brand"].HeaderText = "Марка";
+
             }
         }
 

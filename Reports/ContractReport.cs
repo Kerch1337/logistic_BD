@@ -22,7 +22,7 @@ namespace logistic_BD.Reports
                 {
                     conn.Open();
 
-                string sql = @"
+                    string sql = @"
 
                     SELECT
 
@@ -111,60 +111,60 @@ namespace logistic_BD.Reports
                     WHERE c.contract_id=@id
                     ";
 
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@id", contractId);
-                var reader = cmd.ExecuteReader();
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@id", contractId);
+                    var reader = cmd.ExecuteReader();
 
-                if (!reader.Read())
-                    return;
+                    if (!reader.Read())
+                        return;
 
-                string contractNum = reader["contract_contract_num"]?.ToString() ?? "";
-                string contractDate = reader["contract_contract_date"]?.ToString() ?? "";
-                string organizationName = reader["organization_name"]?.ToString() ?? "";
-                string organizationAddress = reader["organization_address"]?.ToString() ?? "";
-                string organizationPhone = reader["organization_phone"]?.ToString() ?? "";
+                    string contractNum = reader["contract_contract_num"]?.ToString() ?? "";
+                    string contractDate = reader["contract_contract_date"]?.ToString() ?? "";
+                    string organizationName = reader["organization_name"]?.ToString() ?? "";
+                    string organizationAddress = reader["organization_address"]?.ToString() ?? "";
+                    string organizationPhone = reader["organization_phone"]?.ToString() ?? "";
 
-                string customerOrgName = reader["customer_org_name"]?.ToString() ?? "";
-                string customerInn = reader["customer_inn"]?.ToString() ?? "";
-                string customerAddress = reader["customer_address"]?.ToString() ?? "";
-                string customerPhone = reader["customer_phone"]?.ToString() ?? "";
-                string customerFirstName = reader["customer_first_name"]?.ToString() ?? "";
-                string customerLastName = reader["customer_last_name"]?.ToString() ?? "";
-                string customerPatronymic = reader["customer_patronymic"]?.ToString() ?? "";
+                    string customerOrgName = reader["customer_org_name"]?.ToString() ?? "";
+                    string customerInn = reader["customer_inn"]?.ToString() ?? "";
+                    string customerAddress = reader["customer_address"]?.ToString() ?? "";
+                    string customerPhone = reader["customer_phone"]?.ToString() ?? "";
+                    string customerFirstName = reader["customer_first_name"]?.ToString() ?? "";
+                    string customerLastName = reader["customer_last_name"]?.ToString() ?? "";
+                    string customerPatronymic = reader["customer_patronymic"]?.ToString() ?? "";
 
-                string shipperOrgName = reader["shipper_org_name"]?.ToString() ?? "";
-                string shipperInn = reader["shipper_inn"]?.ToString() ?? "";
-                string shipperAddress = reader["shipper_address"]?.ToString() ?? "";
-                string shipperPhone = reader["shipper_phone"]?.ToString() ?? "";
-                string shipperFirstName = reader["shipper_first_name"]?.ToString() ?? "";
-                string shipperLastName = reader["shipper_last_name"]?.ToString() ?? "";
-                string shipperPatronymic = reader["shipper_patronymic"]?.ToString() ?? "";
+                    string shipperOrgName = reader["shipper_org_name"]?.ToString() ?? "";
+                    string shipperInn = reader["shipper_inn"]?.ToString() ?? "";
+                    string shipperAddress = reader["shipper_address"]?.ToString() ?? "";
+                    string shipperPhone = reader["shipper_phone"]?.ToString() ?? "";
+                    string shipperFirstName = reader["shipper_first_name"]?.ToString() ?? "";
+                    string shipperLastName = reader["shipper_last_name"]?.ToString() ?? "";
+                    string shipperPatronymic = reader["shipper_patronymic"]?.ToString() ?? "";
 
-                string consigneeOrgName = reader["consignee_org_name"]?.ToString() ?? "";
-                string consigneeInn = reader["consignee_inn"]?.ToString() ?? "";
-                string consigneeAddress = reader["consignee_address"]?.ToString() ?? "";
-                string consigneePhone = reader["consignee_phone"]?.ToString() ?? "";
-                string consigneeFirstName = reader["consignee_first_name"]?.ToString() ?? "";
-                string consigneeLastName = reader["consignee_last_name"]?.ToString() ?? "";
-                string consigneePatronymic = reader["consignee_patronymic"]?.ToString() ?? "";
+                    string consigneeOrgName = reader["consignee_org_name"]?.ToString() ?? "";
+                    string consigneeInn = reader["consignee_inn"]?.ToString() ?? "";
+                    string consigneeAddress = reader["consignee_address"]?.ToString() ?? "";
+                    string consigneePhone = reader["consignee_phone"]?.ToString() ?? "";
+                    string consigneeFirstName = reader["consignee_first_name"]?.ToString() ?? "";
+                    string consigneeLastName = reader["consignee_last_name"]?.ToString() ?? "";
+                    string consigneePatronymic = reader["consignee_patronymic"]?.ToString() ?? "";
 
-                string loadingAddress = reader["contract_loading_address"]?.ToString() ?? "";
-                string loadingTime = reader["contract_loading_time"]?.ToString() ?? "";
-                string loadingContactName = reader["loading_contact_full_name"]?.ToString() ?? "";
-                string loadingContactPhone = reader["loading_contact_phone"]?.ToString() ?? "";
+                    string loadingAddress = reader["contract_loading_address"]?.ToString() ?? "";
+                    string loadingTime = reader["contract_loading_time"]?.ToString() ?? "";
+                    string loadingContactName = reader["loading_contact_full_name"]?.ToString() ?? "";
+                    string loadingContactPhone = reader["loading_contact_phone"]?.ToString() ?? "";
 
-                string unloadingAddress = reader["contract_unloading_address"]?.ToString() ?? "";
-                string unloadingTime = reader["contract_unloading_time"]?.ToString() ?? "";
-                string unloadingContactName = reader["unloading_contact_full_name"]?.ToString() ?? "";
-                string unloadingContactPhone = reader["unloading_contact_phone"]?.ToString() ?? "";
+                    string unloadingAddress = reader["contract_unloading_address"]?.ToString() ?? "";
+                    string unloadingTime = reader["contract_unloading_time"]?.ToString() ?? "";
+                    string unloadingContactName = reader["unloading_contact_full_name"]?.ToString() ?? "";
+                    string unloadingContactPhone = reader["unloading_contact_phone"]?.ToString() ?? "";
 
-                string costServices = reader["contract_cost_services"]?.ToString() ?? "";
-                string paymentTerms = reader["contract_payment_terms"]?.ToString() ?? "";
-                string performerName = reader["performer_name"]?.ToString() ?? "";
+                    string costServices = reader["contract_cost_services"]?.ToString() ?? "";
+                    string paymentTerms = reader["contract_payment_terms"]?.ToString() ?? "";
+                    string performerName = reader["performer_name"]?.ToString() ?? "";
 
-                reader.Close();
+                    reader.Close();
 
-                string cargoSql = @"
+                    string cargoSql = @"
                     SELECT 
                         GROUP_CONCAT(cargo_name SEPARATOR ', ') AS cargo_name,
                         GROUP_CONCAT(package_count SEPARATOR ', ') AS cargo_package_count,
@@ -174,81 +174,81 @@ namespace logistic_BD.Reports
                     FROM cargo 
                     WHERE contract_id = @id";
 
-                cmd = new MySqlCommand(cargoSql, conn);
-                cmd.Parameters.AddWithValue("@id", contractId);
-                var cargoReader = cmd.ExecuteReader();
+                    cmd = new MySqlCommand(cargoSql, conn);
+                    cmd.Parameters.AddWithValue("@id", contractId);
+                    var cargoReader = cmd.ExecuteReader();
 
-                string cargoName = "";
-                string cargoPackage = "";
-                string cargoWeight = "";
-                string cargoVolume = "";
-                string cargoAdditional = "";
+                    string cargoName = "";
+                    string cargoPackage = "";
+                    string cargoWeight = "";
+                    string cargoVolume = "";
+                    string cargoAdditional = "";
 
-                if (cargoReader.Read())
-                {
-                    cargoName = cargoReader["cargo_name"]?.ToString() ?? "";
-                    cargoPackage = cargoReader["cargo_package_count"]?.ToString() ?? "";
-                    cargoWeight = cargoReader["cargo_gross_weight"]?.ToString() ?? "";
-                    cargoVolume = cargoReader["cargo_volume"]?.ToString() ?? "";
-                    cargoAdditional = cargoReader["cargo_additional_info"]?.ToString() ?? "";
-                }
-                cargoReader.Close();
+                    if (cargoReader.Read())
+                    {
+                        cargoName = cargoReader["cargo_name"]?.ToString() ?? "";
+                        cargoPackage = cargoReader["cargo_package_count"]?.ToString() ?? "";
+                        cargoWeight = cargoReader["cargo_gross_weight"]?.ToString() ?? "";
+                        cargoVolume = cargoReader["cargo_volume"]?.ToString() ?? "";
+                        cargoAdditional = cargoReader["cargo_additional_info"]?.ToString() ?? "";
+                    }
+                    cargoReader.Close();
 
-                string projectRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
-                string template = Path.Combine(projectRoot, "logistic_BD/Templates", "Obrasec_Dogovor.docx");
-                string output = $"Contract_Report_{contractId}.docx";
+                    string projectRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
+                    string template = Path.Combine(projectRoot, "logistic_BD/Templates", "Obrasec_Dogovor.docx");
+                    string output = $"Договор_Заявка_{contractNum}.docx";
 
-                var doc = DocX.Load(template);
+                    var doc = DocX.Load(template);
 
-                doc.ReplaceText("{contract_contract_num}", contractNum);
-                doc.ReplaceText("{contract_contract_date}", contractDate);
-                doc.ReplaceText("{organization_name}", organizationName);
-                doc.ReplaceText("{organization_address}", organizationAddress);
-                doc.ReplaceText("{organization_phone}", organizationPhone);
+                    doc.ReplaceText("{contract_contract_num}", contractNum);
+                    doc.ReplaceText("{contract_contract_date}", contractDate);
+                    doc.ReplaceText("{organization_name}", organizationName);
+                    doc.ReplaceText("{organization_address}", organizationAddress);
+                    doc.ReplaceText("{organization_phone}", organizationPhone);
 
-                doc.ReplaceText("{customer_org_name}", customerOrgName);
-                doc.ReplaceText("{customer_inn}", customerInn);
-                doc.ReplaceText("{customer_address}", customerAddress);
-                doc.ReplaceText("{customer_phone}", customerPhone);
-                doc.ReplaceText("{customer_first_name}", customerFirstName);
-                doc.ReplaceText("{customer_last_name}", customerLastName);
-                doc.ReplaceText("{customer_patronymic}", customerPatronymic);
+                    doc.ReplaceText("{customer_org_name}", customerOrgName);
+                    doc.ReplaceText("{customer_inn}", customerInn);
+                    doc.ReplaceText("{customer_address}", customerAddress);
+                    doc.ReplaceText("{customer_phone}", customerPhone);
+                    doc.ReplaceText("{customer_first_name}", customerFirstName);
+                    doc.ReplaceText("{customer_last_name}", customerLastName);
+                    doc.ReplaceText("{customer_patronymic}", customerPatronymic);
 
-                doc.ReplaceText("{shipper_org_name}", shipperOrgName);
-                doc.ReplaceText("{shipper_inn}", shipperInn);
-                doc.ReplaceText("{shipper_address}", shipperAddress);
-                doc.ReplaceText("{shipper_phone}", shipperPhone);
-                doc.ReplaceText("{shipper_first_name}", shipperFirstName);
-                doc.ReplaceText("{shipper_last_name}", shipperLastName);
-                doc.ReplaceText("{shipper_patronymic}", shipperPatronymic);
+                    doc.ReplaceText("{shipper_org_name}", shipperOrgName);
+                    doc.ReplaceText("{shipper_inn}", shipperInn);
+                    doc.ReplaceText("{shipper_address}", shipperAddress);
+                    doc.ReplaceText("{shipper_phone}", shipperPhone);
+                    doc.ReplaceText("{shipper_first_name}", shipperFirstName);
+                    doc.ReplaceText("{shipper_last_name}", shipperLastName);
+                    doc.ReplaceText("{shipper_patronymic}", shipperPatronymic);
 
-                doc.ReplaceText("{consignee_org_name}", consigneeOrgName);
-                doc.ReplaceText("{consignee_inn}", consigneeInn);
-                doc.ReplaceText("{consignee_address}", consigneeAddress);
-                doc.ReplaceText("{consignee_phone}", consigneePhone);
-                doc.ReplaceText("{consignee_first_name}", consigneeFirstName);
-                doc.ReplaceText("{consignee_last_name}", consigneeLastName);
-                doc.ReplaceText("{consignee_patronymic}", consigneePatronymic);
+                    doc.ReplaceText("{consignee_org_name}", consigneeOrgName);
+                    doc.ReplaceText("{consignee_inn}", consigneeInn);
+                    doc.ReplaceText("{consignee_address}", consigneeAddress);
+                    doc.ReplaceText("{consignee_phone}", consigneePhone);
+                    doc.ReplaceText("{consignee_first_name}", consigneeFirstName);
+                    doc.ReplaceText("{consignee_last_name}", consigneeLastName);
+                    doc.ReplaceText("{consignee_patronymic}", consigneePatronymic);
 
-                doc.ReplaceText("{contract_loading_address}", loadingAddress);
-                doc.ReplaceText("{contract_loading_time}", loadingTime);
-                doc.ReplaceText("{loading_contact_full_name}", loadingContactName);
-                doc.ReplaceText("{loading_contact_phone}", loadingContactPhone);
+                    doc.ReplaceText("{contract_loading_address}", loadingAddress);
+                    doc.ReplaceText("{contract_loading_time}", loadingTime);
+                    doc.ReplaceText("{loading_contact_full_name}", loadingContactName);
+                    doc.ReplaceText("{loading_contact_phone}", loadingContactPhone);
 
-                doc.ReplaceText("{contract_unloading_address}", unloadingAddress);
-                doc.ReplaceText("{contract_unloading_time}", unloadingTime);
-                doc.ReplaceText("{unloading_contact_full_name}", unloadingContactName);
-                doc.ReplaceText("{unloading_contact_phone}", unloadingContactPhone);
+                    doc.ReplaceText("{contract_unloading_address}", unloadingAddress);
+                    doc.ReplaceText("{contract_unloading_time}", unloadingTime);
+                    doc.ReplaceText("{unloading_contact_full_name}", unloadingContactName);
+                    doc.ReplaceText("{unloading_contact_phone}", unloadingContactPhone);
 
-                doc.ReplaceText("{cargo_name}", cargoName);
-                doc.ReplaceText("{cargo_package_count}", cargoPackage);
-                doc.ReplaceText("{cargo_gross_weight}", cargoWeight);
-                doc.ReplaceText("{cargo_volume}", cargoVolume);
-                doc.ReplaceText("{cargo_additional_info}", cargoAdditional);
+                    doc.ReplaceText("{cargo_name}", cargoName);
+                    doc.ReplaceText("{cargo_package_count}", cargoPackage);
+                    doc.ReplaceText("{cargo_gross_weight}", cargoWeight);
+                    doc.ReplaceText("{cargo_volume}", cargoVolume);
+                    doc.ReplaceText("{cargo_additional_info}", cargoAdditional);
 
-                doc.ReplaceText("{contract_cost_services}", costServices);
-                doc.ReplaceText("{contract_payment_terms}", paymentTerms);
-                doc.ReplaceText("{performer_name}", performerName);
+                    doc.ReplaceText("{contract_cost_services}", costServices);
+                    doc.ReplaceText("{contract_payment_terms}", paymentTerms);
+                    doc.ReplaceText("{performer_name}", performerName);
 
                     doc.SaveAs(output);
 

@@ -51,7 +51,7 @@ namespace logistic_BD.Views.Subdoc_Views
                 conn.Open();
 
                 string sql =
-                    "SELECT worker_id FROM worker";
+                    "SELECT worker_id, full_name FROM worker";
 
                 MySqlDataAdapter da =
                     new MySqlDataAdapter(sql, conn);
@@ -66,7 +66,7 @@ namespace logistic_BD.Views.Subdoc_Views
                     "worker_id";
 
                 cmbAuthorizedPerson.DisplayMember =
-                    "worker_id";
+                    "full_name";
             }
         }
 

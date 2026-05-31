@@ -43,35 +43,43 @@ namespace logistic_BD.Views.Doc_Views
                 DataTable dt;
 
 
-                da = new MySqlDataAdapter("SELECT driver_id FROM driver", conn);
+                da = new MySqlDataAdapter("SELECT driver_id, personnel_number FROM driver", conn);
                 dt = new DataTable();
                 da.Fill(dt);
                 cmbDriver.DataSource = dt;
                 cmbDriver.ValueMember = "driver_id";
-                cmbDriver.DisplayMember = "driver_id";
+                cmbDriver.DisplayMember = "personnel_number";
 
-                da = new MySqlDataAdapter("SELECT vehicle_id FROM vehicle", conn);
+                da = new MySqlDataAdapter("SELECT vehicle_id, reg_number FROM vehicle", conn);
                 dt = new DataTable();
                 da.Fill(dt);
                 cmbVehicle.DataSource = dt;
                 cmbVehicle.ValueMember = "vehicle_id";
-                cmbVehicle.DisplayMember = "vehicle_id";
+                cmbVehicle.DisplayMember = "reg_number";
 
-                da = new MySqlDataAdapter("SELECT client_id FROM client", conn);
+                da = new MySqlDataAdapter("SELECT client_id, org_name, last_name FROM client", conn);
                 dt = new DataTable();
                 da.Fill(dt);
+
+                dt.Columns.Add("display_client",typeof(string));
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    row["display_client"] = $"{row["org_name"]} | " + $"{row["last_name"]} ";
+                }
+
                 cmbCustomer.DataSource = dt;
                 cmbCustomer.ValueMember = "client_id";
-                cmbCustomer.DisplayMember = "client_id";
+                cmbCustomer.DisplayMember = "display_client";
 
-                da = new MySqlDataAdapter("SELECT organization_id FROM organization", conn);
+                da = new MySqlDataAdapter("SELECT organization_id, name FROM organization", conn);
                 dt = new DataTable();
                 da.Fill(dt);
                 cmbOrganization.DataSource = dt;
                 cmbOrganization.ValueMember = "organization_id";
-                cmbOrganization.DisplayMember = "organization_id";
+                cmbOrganization.DisplayMember = "name";
 
-                da = new MySqlDataAdapter("SELECT worker_id FROM worker", conn);
+                da = new MySqlDataAdapter("SELECT worker_id, full_name FROM worker", conn);
                 dt = new DataTable();
                 da.Fill(dt);
 
@@ -83,9 +91,9 @@ namespace logistic_BD.Views.Doc_Views
                 cmbMechanic.ValueMember = "worker_id";
                 cmbController.ValueMember = "worker_id";
 
-                cmbPersonFillingOut.DisplayMember = "worker_id";
-                cmbMechanic.DisplayMember = "worker_id";
-                cmbController.DisplayMember = "worker_id";
+                cmbPersonFillingOut.DisplayMember = "full_name";
+                cmbMechanic.DisplayMember = "full_name";
+                cmbController.DisplayMember = "full_name";
             }
 
             cmbTransportType.Items.Add("Регулярная перевозка пассажиров и багажа");

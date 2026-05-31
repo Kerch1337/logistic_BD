@@ -85,6 +85,17 @@ namespace logistic_BD.Views.ReportViews
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 dataGridView1.DataSource = dt;
+
+                dataGridView1.Columns["reg_number"].HeaderText = "Рег. номер";
+                dataGridView1.Columns["brand"].HeaderText = "Марка";
+                dataGridView1.Columns["model"].HeaderText = "Модель";
+
+                dataGridView1.Columns["trips_count"].HeaderText = "Количество рейсов";
+                dataGridView1.Columns["total_weight"].HeaderText = "Общий вес";
+                dataGridView1.Columns["total_volume"].HeaderText = "Общий объем";
+                dataGridView1.Columns["total_services"].HeaderText = "Общая сумма";
+                dataGridView1.Columns["last_trip"].HeaderText = "Последний рейс";
+                dataGridView1.Columns["status"].HeaderText = "Статус";
             }
         }
 

@@ -62,6 +62,12 @@ namespace logistic_BD.Views.Subdoc_Views
                 da.Fill(dt);
 
                 dgvCargo.DataSource = dt;
+
+                dgvCargo.Columns["cargo_id"].HeaderText = "Идентификатор груза";
+                dgvCargo.Columns["cargo_name"].HeaderText = "Наименование груза";
+                dgvCargo.Columns["gross_weight"].HeaderText = "Вес груза (брутто)";
+                dgvCargo.Columns["volume"].HeaderText = "Объем";
+                dgvCargo.Columns["consignment_note_id"].HeaderText = "Идентификатор ТН";
             }
         }
 

@@ -93,9 +93,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(256, 291);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(143, 13);
+            this.label12.Size = new System.Drawing.Size(121, 13);
             this.label12.TabIndex = 246;
-            this.label12.Text = "Идентификатор упол. лица";
+            this.label12.Text = "Уполномоченное лицо";
             // 
             // dtpScheduledDate
             // 

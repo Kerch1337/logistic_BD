@@ -256,9 +256,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(280, 224);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(143, 13);
+            this.label8.Size = new System.Drawing.Size(55, 13);
             this.label8.TabIndex = 52;
-            this.label8.Text = "Идентификатор заказчика";
+            this.label8.Text = "Заказчик";
             // 
             // cmbConsignee
             // 
@@ -274,9 +274,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(515, 14);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(175, 13);
+            this.label7.Size = new System.Drawing.Size(93, 13);
             this.label7.TabIndex = 54;
-            this.label7.Text = "Идентификатор грузополучателя";
+            this.label7.Text = "Грузополучатель";
             // 
             // cmbShipper
             // 
@@ -292,9 +292,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(515, 67);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(182, 13);
+            this.label12.Size = new System.Drawing.Size(100, 13);
             this.label12.TabIndex = 56;
-            this.label12.Text = "Идентификатор грузоотправителя";
+            this.label12.Text = "Грузоотправитель";
             // 
             // cmbOrganization
             // 
@@ -310,9 +310,9 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(515, 118);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(155, 13);
+            this.label13.Size = new System.Drawing.Size(74, 13);
             this.label13.TabIndex = 58;
-            this.label13.Text = "Идентификатор организации";
+            this.label13.Text = "Организация";
             // 
             // cmbPerformer
             // 
@@ -328,9 +328,9 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(515, 174);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(155, 13);
+            this.label14.Size = new System.Drawing.Size(74, 13);
             this.label14.TabIndex = 60;
-            this.label14.Text = "Идентификатор исполнителя";
+            this.label14.Text = "Исполнитель";
             // 
             // cmbLoadingContact
             // 
@@ -347,9 +347,9 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(515, 226);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(229, 13);
+            this.label15.Size = new System.Drawing.Size(142, 13);
             this.label15.TabIndex = 62;
-            this.label15.Text = "Идентификатор контактного лица погрузки";
+            this.label15.Text = "Контактное лицо погрузки";
             this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // cmbUnloadingContact
@@ -366,9 +366,9 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(515, 286);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(231, 13);
+            this.label16.Size = new System.Drawing.Size(144, 13);
             this.label16.TabIndex = 64;
-            this.label16.Text = "Идентификатор контактного лица выгрузки";
+            this.label16.Text = "Контактное лицо выгрузки";
             // 
             // btnOpenCustomer
             // 
