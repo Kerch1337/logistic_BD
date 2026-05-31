@@ -45,6 +45,11 @@ namespace logistic_BD.Views.Driver_Views
                 da.Fill(dt);
 
                 dataGridView1.DataSource = dt;
+
+                dataGridView1.Columns["trailer_id"].HeaderText = "Идентификатор прицепа";
+                dataGridView1.Columns["brand"].HeaderText = "Марка";
+                dataGridView1.Columns["reg_number"].HeaderText = "Рег. номер";
+                dataGridView1.Columns["parking_place"].HeaderText = "Парковочное место";
             }
         }
 

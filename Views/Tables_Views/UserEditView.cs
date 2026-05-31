@@ -45,15 +45,15 @@ namespace logistic_BD.Views.Admin_Views
                 chkIsSystem.Enabled = false;
 
                 DataTable workers = new DataTable();
-                new MySqlDataAdapter("SELECT NULL AS worker_id UNION SELECT worker_id FROM worker", conn).Fill(workers);
+                new MySqlDataAdapter("SELECT NULL AS worker_id, NULL AS full_name UNION SELECT worker_id, full_name FROM worker", conn).Fill(workers);
                 cmbWorker.DataSource = workers;
-                cmbWorker.DisplayMember = "worker_id";
+                cmbWorker.DisplayMember = "full_name";
                 cmbWorker.ValueMember = "worker_id";
 
                 DataTable drivers = new DataTable();
-                new MySqlDataAdapter("SELECT NULL AS driver_id UNION SELECT driver_id FROM driver", conn).Fill(drivers);
+                new MySqlDataAdapter("SELECT NULL AS driver_id, NULL AS personnel_number UNION SELECT driver_id, personnel_number FROM driver", conn).Fill(drivers);
                 cmbDriver.DataSource = drivers;
-                cmbDriver.DisplayMember = "driver_id";
+                cmbDriver.DisplayMember = "personnel_number";
                 cmbDriver.ValueMember = "driver_id";
             }
         }

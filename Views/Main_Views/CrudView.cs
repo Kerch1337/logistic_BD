@@ -82,11 +82,55 @@ namespace logistic_BD
                 }
                 else if (tableName == "medical_exam" && parentId != 0)
                 {
-                    sql = "SELECT * FROM medical_exam WHERE waybill_id = @id";
+                    sql = @"
+                    SELECT
+                        me.medical_exam_id,
+                        me.exam_type,
+                        me.exam_datetime,
+                        me.result,
+
+                        wb.wb_number,
+
+                        hw.full_name AS health_worker_full_name,
+                        hw.position AS health_worker_position,
+                        hw.med_org_name AS health_worker_org
+
+                    FROM medical_exam me
+
+                    LEFT JOIN waybill wb
+                        ON me.waybill_id = wb.waybill_id
+
+                    LEFT JOIN health_worker hw
+                        ON me.health_worker_id = hw.health_worker_id
+
+                    WHERE me.waybill_id = @id";
                 }
                 else if (tableName == "driver_vehicle_work" && parentId != 0)
                 {
-                    sql = "SELECT * FROM driver_vehicle_work WHERE waybill_id = @id";
+                    sql = @"
+                    SELECT
+                        d.work_id,
+                        d.work_type,
+                        d.scheduled_date,
+                        d.scheduled_time,
+                        d.actual_date,
+                        d.actual_time,
+                        d.zero_run,
+                        d.odometer_reading,
+
+                        wb.wb_number,
+
+                        w.full_name AS authorized_person,
+                        w.position AS authorized_person_position
+
+                    FROM driver_vehicle_work d
+
+                    LEFT JOIN worker w
+                        ON d.authorized_person_id = w.worker_id
+
+                    LEFT JOIN waybill wb
+                        ON d.waybill_id = wb.waybill_id
+                    WHERE d.waybill_id = @id";
                 }
                 else if (tableName == "contract")
                 {
@@ -258,6 +302,34 @@ namespace logistic_BD
                         ON cn.carriers_representative_id = representative.worker_id
                     ";
                 }
+                else if (tableName == "user")
+                {
+                    sql = @"
+                    SELECT
+                        u.user_id,
+                        u.login,
+                        u.password_hash,
+                        u.role,
+
+                        w.full_name AS worker_full_name,
+                        w.position AS worker_position,
+
+                        d.personnel_number,
+                        d.last_name AS driver_last_name,
+                        d.first_name AS driver_first_name,
+                        d.patronymic AS driver_patronymic,
+
+                        u.is_system
+
+                    FROM user u
+
+                    LEFT JOIN worker w
+                        ON u.worker_id = w.worker_id
+
+                    LEFT JOIN driver d
+                        ON u.driver_id = d.driver_id
+                    ";
+                }
                 else
                 {
                     sql = $"SELECT * FROM {tableName}";
@@ -342,16 +414,6 @@ namespace logistic_BD
                     dataGridView1.Columns["org_name"].HeaderText = "Наименование организации";
                     dataGridView1.Columns["phone"].HeaderText = "Телефон";
                 }
-                else if (tableName == "user")
-                {
-                    dataGridView1.Columns["user_id"].HeaderText = "Идентификатор пользователя";
-                    dataGridView1.Columns["login"].HeaderText = "Логин";
-                    dataGridView1.Columns["password_hash"].HeaderText = "Пароль";
-                    dataGridView1.Columns["role"].HeaderText = "Роль";
-                    dataGridView1.Columns["worker_id"].HeaderText = "Идентификатор работника";
-                    dataGridView1.Columns["driver_id"].HeaderText = "Идентификатор водителя";
-                    dataGridView1.Columns["is_system"].HeaderText = "Системный пользователь";
-                }
                 else if (tableName == "cargo")
                 {
                     dataGridView1.Columns["cargo_id"].HeaderText = "Идентификатор груза";
@@ -376,16 +438,19 @@ namespace logistic_BD
                 else if (tableName == "medical_exam")
                 {
                     dataGridView1.Columns["medical_exam_id"].HeaderText = "Идентификатор медосмотра";
-                    dataGridView1.Columns["waybill_id"].HeaderText = "Идентификатор ПЛ";
+                    dataGridView1.Columns["wb_number"].HeaderText = "Номер ПЛ";
                     dataGridView1.Columns["exam_type"].HeaderText = "Тип медосмотра";
                     dataGridView1.Columns["exam_datetime"].HeaderText = "Дата медосмотра";
                     dataGridView1.Columns["result"].HeaderText = "Результат";
-                    dataGridView1.Columns["health_worker_id"].HeaderText = "Идентификатор медработника";
+
+                    dataGridView1.Columns["health_worker_full_name"].HeaderText = "ФИО медработника";
+                    dataGridView1.Columns["health_worker_position"].HeaderText = "Должность медработника";
+                    dataGridView1.Columns["health_worker_org"].HeaderText = "Организация медработника";
                 }
                 else if (tableName == "driver_vehicle_work")
                 {
                     dataGridView1.Columns["work_id"].HeaderText = "Идентификатор работы";
-                    dataGridView1.Columns["waybill_id"].HeaderText = "Идентификатор ПЛ";
+                    dataGridView1.Columns["wb_number"].HeaderText = "Номер ПЛ";
                     dataGridView1.Columns["work_type"].HeaderText = "Тип работы";
                     dataGridView1.Columns["scheduled_date"].HeaderText = "Заланированная дата";
                     dataGridView1.Columns["scheduled_time"].HeaderText = "Запланированное время";
@@ -393,7 +458,9 @@ namespace logistic_BD
                     dataGridView1.Columns["actual_time"].HeaderText = "Фактическое время";
                     dataGridView1.Columns["zero_run"].HeaderText = "Нулевой пробег";
                     dataGridView1.Columns["odometer_reading"].HeaderText = "Показание одометра";
-                    dataGridView1.Columns["authorized_person_id"].HeaderText = "Идентификатор уполномоченного лица";
+
+                    dataGridView1.Columns["authorized_person"].HeaderText = "ФИО уполномоченного лица";
+                    dataGridView1.Columns["authorized_person_position"].HeaderText = "Должность уполномоченного лица";
                 }
                 else if (tableName == "contract")
                 {
@@ -508,8 +575,34 @@ namespace logistic_BD
 
                     dataGridView1.Columns["carriers_representative"].HeaderText = "Представитель перевлзчика";
                 }
-                else if (tableName == "")
+                else if (tableName == "user")
                 {
+                    dataGridView1.Columns["user_id"].HeaderText = "Идентификатор пользователя";
+                    dataGridView1.Columns["login"].HeaderText = "Логин";
+                    dataGridView1.Columns["password_hash"].HeaderText = "Пароль";
+                    dataGridView1.Columns["role"].HeaderText = "Роль";
+
+                    dataGridView1.Columns["worker_full_name"].HeaderText = "ФИО работника";
+                    dataGridView1.Columns["worker_position"].HeaderText = "Должность работника";
+
+                    dataGridView1.Columns["personnel_number"].HeaderText = "Персональный номер водителя";
+                    dataGridView1.Columns["driver_last_name"].HeaderText = "Фамилия водителя";
+                    dataGridView1.Columns["driver_first_name"].HeaderText = "Имя водителя";
+                    dataGridView1.Columns["driver_patronymic"].HeaderText = "Отчество водителя";
+
+                    dataGridView1.Columns["is_system"].HeaderText = "Системный пользователь";
+                }
+                else if (tableName == "cargo_state")
+                {
+                    dataGridView1.Columns["cargo_state_id"].HeaderText = "Идентификатор состояния груза";
+                    dataGridView1.Columns["cargo_id"].HeaderText = "Идентификатор груза";
+                    dataGridView1.Columns["state_type"].HeaderText = "Тип состояния";
+                    dataGridView1.Columns["actual_state"].HeaderText = "Фактическое состояние";
+                    dataGridView1.Columns["actual_package_count"].HeaderText = "Фактическое количество грузовых мест";
+                    dataGridView1.Columns["actual_gross_weight"].HeaderText = "Фактическая масса брутто";
+                    dataGridView1.Columns["actual_net_weight"].HeaderText = "Фактическая масса нетто";
+                    dataGridView1.Columns["actual_density"].HeaderText = "Фактическая плотность";
+                    dataGridView1.Columns["remarks"].HeaderText = "Замечания";
                 }
                 else
                 {
@@ -517,13 +610,6 @@ namespace logistic_BD
                 }
             }
         }
-
-        /*private void btnBack_Click_1(object sender, EventArgs e)
-        {
-            MainForm main = (MainForm)this.FindForm();
-
-            main.ShowView(new MenuView());
-        }*/
 
         private void btnBack_Click_1(object sender, EventArgs e)
         {

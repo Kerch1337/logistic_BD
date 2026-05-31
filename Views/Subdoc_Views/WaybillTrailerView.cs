@@ -53,14 +53,14 @@ namespace logistic_BD.Views.Subdoc_Views
                 conn.Open();
 
                 string sql = @"
-            SELECT
-                wt.trailer_id,
-                t.reg_number,
-                t.brand
-            FROM waybill_trailer wt
-            JOIN trailer t
-                ON wt.trailer_id = t.trailer_id
-            WHERE wt.waybill_id = @waybill_id";
+                    SELECT
+                        wt.trailer_id,
+                        t.reg_number,
+                        t.brand
+                    FROM waybill_trailer wt
+                    JOIN trailer t
+                        ON wt.trailer_id = t.trailer_id
+                    WHERE wt.waybill_id = @waybill_id";
 
                 MySqlDataAdapter da =
                     new MySqlDataAdapter(sql, conn);

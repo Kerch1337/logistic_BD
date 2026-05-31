@@ -31,9 +31,36 @@ namespace logistic_BD.Views.Driver_Views
                 conn.Open();
 
                 string sql = @"
-                    SELECT *
-                    FROM cargo
-                    WHERE consignment_note_id = @id";
+                    SELECT
+                        c.cargo_id,
+
+                        cn.cn_num AS consignment_note_number,
+                        ct.contract_num AS contract_number,
+
+                        c.cargo_name,
+                        c.additional_info,
+                        c.cargo_сondition,
+                        c.package_count,
+                        c.marking,
+                        c.packaging_type,
+                        c.packing_method,
+                        c.gross_weight,
+                        c.net_weight,
+                        c.length,
+                        c.width,
+                        c.height,
+                        c.volume,
+                        c.density
+
+                    FROM cargo c
+
+                    LEFT JOIN consignment_note cn
+                        ON c.consignment_note_id = cn.consignment_note_id
+
+                    LEFT JOIN contract ct
+                        ON c.contract_id = ct.contract_id
+
+                    WHERE c.consignment_note_id = @id";
 
                 MySqlDataAdapter da =
                     new MySqlDataAdapter(sql, conn);
@@ -43,13 +70,30 @@ namespace logistic_BD.Views.Driver_Views
                     consignmentId
                 );
 
-                DataTable dt =
-                    new DataTable();
+                DataTable dt = new DataTable();
 
                 da.Fill(dt);
 
-                dataGridView1.DataSource =
-                    dt;
+                dataGridView1.DataSource = dt;
+
+                dataGridView1.Columns["cargo_id"].HeaderText = "Идентификатор груза";
+                dataGridView1.Columns["cargo_name"].HeaderText = "Наименование груза";
+                dataGridView1.Columns["additional_info"].HeaderText = "Доп. информация";
+                dataGridView1.Columns["cargo_сondition"].HeaderText = "Состояние груза";
+                dataGridView1.Columns["package_count"].HeaderText = "Количество грузовых мест";
+                dataGridView1.Columns["marking"].HeaderText = "Маркировка";
+                dataGridView1.Columns["packaging_type"].HeaderText = "Тип упаковки";
+                dataGridView1.Columns["packing_method"].HeaderText = "Способ упаковки";
+                dataGridView1.Columns["gross_weight"].HeaderText = "Масса брутто";
+                dataGridView1.Columns["net_weight"].HeaderText = "Масса нетто";
+                dataGridView1.Columns["length"].HeaderText = "Длина";
+                dataGridView1.Columns["width"].HeaderText = "Ширина";
+                dataGridView1.Columns["height"].HeaderText = "Высота";
+                dataGridView1.Columns["volume"].HeaderText = "Объем";
+                dataGridView1.Columns["density"].HeaderText = "Плотность";
+
+                dataGridView1.Columns["consignment_note_number"].HeaderText = "Номер ТН";
+                dataGridView1.Columns["contract_number"].HeaderText = "Номер договора-заявки";
             }
         }
 

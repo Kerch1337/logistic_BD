@@ -38,6 +38,16 @@ namespace logistic_BD.Views.Driver_Views
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 dataGridView1.DataSource = dt;
+
+                dataGridView1.Columns["cargo_state_id"].HeaderText = "Идентификатор состояния груза";
+                dataGridView1.Columns["cargo_id"].HeaderText = "Идентификатор груза";
+                dataGridView1.Columns["state_type"].HeaderText = "Тип состояния";
+                dataGridView1.Columns["actual_state"].HeaderText = "Фактическое состояние";
+                dataGridView1.Columns["actual_package_count"].HeaderText = "Фактическое количество грузовых мест";
+                dataGridView1.Columns["actual_gross_weight"].HeaderText = "Фактическая масса брутто";
+                dataGridView1.Columns["actual_net_weight"].HeaderText = "Фактическая масса нетто";
+                dataGridView1.Columns["actual_density"].HeaderText = "Фактическая плотность";
+                dataGridView1.Columns["remarks"].HeaderText = "Замечания";
             }
         }
 

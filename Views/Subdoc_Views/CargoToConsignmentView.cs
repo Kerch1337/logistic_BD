@@ -41,14 +41,16 @@ namespace logistic_BD.Views.Subdoc_Views
 
                 string sql = @"
                     SELECT
-                        cargo_id,
-                        cargo_name,
-                        gross_weight,
-                        volume,
-                        consignment_note_id
-                    FROM cargo
-                    WHERE consignment_note_id IS NULL
-                       OR consignment_note_id = @cn_id";
+                        c.cargo_id,
+                        c.cargo_name,
+                        c.gross_weight,
+                        c.volume,
+                        cn.cn_num AS consignment_note_number
+                    FROM cargo c
+                    LEFT JOIN consignment_note cn
+                        ON c.consignment_note_id = cn.consignment_note_id
+                    WHERE c.consignment_note_id IS NULL
+                       OR c.consignment_note_id = @cn_id";
 
                 MySqlDataAdapter da =
                     new MySqlDataAdapter(sql, conn);
@@ -67,7 +69,7 @@ namespace logistic_BD.Views.Subdoc_Views
                 dgvCargo.Columns["cargo_name"].HeaderText = "Наименование груза";
                 dgvCargo.Columns["gross_weight"].HeaderText = "Вес груза (брутто)";
                 dgvCargo.Columns["volume"].HeaderText = "Объем";
-                dgvCargo.Columns["consignment_note_id"].HeaderText = "Идентификатор ТН";
+                dgvCargo.Columns["consignment_note_number"].HeaderText = "Номер ТН";
             }
         }
 
